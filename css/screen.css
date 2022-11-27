@@ -142,27 +142,27 @@ h3 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 48px;
+    font-size: 2.25rem;
+    line-height: 3rem;
     margin: 0 0 var(--global-whitespace);
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 2rem;
+    line-height: 2.5rem;
     margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
-    font-size: 26px;
-    line-height: 32px;
+    font-size: 1.625rem;
+    line-height: 2rem;
     margin: 0 0 var(--global-whitespace);
 }
 
 h4,
 h5,
 h6 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     line-height: 24px;
     margin: 0 0 var(--global-whitespace);
@@ -190,8 +190,8 @@ li ol {
 
 blockquote {
     font-style: normal;
-    font-size: 23px;
-    line-height: 32px;
+    font-size: 1.4375rem;
+    line-height: 2rem;
     margin: 0 0 var(--global-whitespace);
 }
 
@@ -202,8 +202,8 @@ blockquote * {
 
 figcaption {
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 0.75rem;
+    line-height: 1rem;
     margin-top: var(--global-whitespace-sm);
 }
 
@@ -262,8 +262,7 @@ input::placeholder {
 
 .o-row--generator {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
+
 }
 
 /* size modifiers */
@@ -303,7 +302,7 @@ input::placeholder {
     margin-right: auto;
     max-width: 79.5em;
     /* 79.5 * 16px = 1272 */
-    width: 100%;
+    width: 100%
 }
 
 /*
@@ -518,6 +517,14 @@ input::placeholder {
 #COMPONENTS
 \*------------------------------------*/
 
+
+.c-container--test{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 100vh;
+}
 /*
     Component: Logo
     ---
@@ -528,11 +535,14 @@ input::placeholder {
     --logo__path--1--Fill: var(--global-color-neutral-xxxx-dark);
     --logo__path--2--Fill: var(--global-color-alpha);
     --logo__path--3--Fill: var(--global-color-alpha-x-dark);
-    height: var(--global-whitespace);
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--global-whitespace-xl);
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 100%;
+
 }
 
 .c-logo__symbol {
@@ -550,6 +560,12 @@ input::placeholder {
 .c-logo__path--3 {
     fill: var(--logo__path--3--Fill);
 }
+.test-container{
+    height: 500px;
+    width: 300px;
+    background-color: hotpink;
+
+}
 
 /*
     Component: Card
@@ -558,12 +574,14 @@ input::placeholder {
 */
 
 .c-flip-card{
-    width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: transparent;
+    width: 50vw;
     height: 50vh;
     perspective: 1000px;
 }
 .c-flip--inner{
-    position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -585,6 +603,8 @@ input::placeholder {
 }
 
 .c-card {
+    height: 100%;
+    width: 100%;
     --card-backgroundColor: White;
     --card__footer-borderColor: var(--global-color-neutral-xxx-light);
     --card-borderRadius: var(--global-borderRadius);
@@ -596,12 +616,7 @@ input::placeholder {
 }
 
 /* Add padding to child for more flexibility */
-.c-card__header,
-.c-card__body{
-    padding: var(--global-whitespace) var(--global-whitespace) 0;
-    overflow: auto;
-    /* Fix margin collapse */
-}
+
 .c-component-range{
     display: flex;
     gap: 8px;
@@ -613,19 +628,22 @@ input::placeholder {
     justify-content: space-between;
     padding-bottom: 24px;
     border-bottom: 1px solid var(--card__footer-borderColor);
+    height: 10vh;
+    margin: auto;
 }
+
 
 
 .c-card__title {
     text-align: center;
-    font-size: 18px;
-    line-height: var(--global-whitespace);
+    font-size: 1.125rem;
+    line-height: 2rem;
     font-weight: 600;
 }
 .c-card__category {
     text-align: center;
-    font-size: 14px;
-    line-height: var(--global-whitespace);
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
     font-weight: 400;
     margin: 0;
 }
@@ -640,6 +658,7 @@ input::placeholder {
         margin-bottom: var(--global-whitespace-xl);
     }
 }
+
 
 /*
     Component: grid
