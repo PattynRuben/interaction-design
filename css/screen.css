@@ -557,6 +557,33 @@ input::placeholder {
     Card with box shadow
 */
 
+.c-flip-card{
+    width: 50vh;
+    height: 50vh;
+    perspective: 1000px;
+}
+.c-flip--inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.c-card--front, .c-card--back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+.c-flip--inner.is-flipped{
+    transform: rotateY(180deg);
+}
+.c-card--back{
+    transform: rotateY(180deg);
+}
+
 .c-card {
     --card-backgroundColor: White;
     --card__footer-borderColor: var(--global-color-neutral-xxx-light);
@@ -577,6 +604,7 @@ input::placeholder {
 }
 .c-component-range{
     display: flex;
+    gap: 8px;
 }
 
 .c-card__header{
@@ -601,6 +629,7 @@ input::placeholder {
     font-weight: 400;
     margin: 0;
 }
+
 
 @media (min-width: 27em) {
     .c-card__body {
@@ -627,6 +656,41 @@ input::placeholder {
     height: 100%;
     position: relative;
     margin-bottom: 24px;
+}
+
+/*
+    Component: Range
+    ---
+    Everything form related here
+*/
+
+.c-range{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%);
+    outline: none;
+    -webkit-transition: .2s;
+}
+
+.c-range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,0);
+    color: white;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+}
+.c-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
 }
 
 /*
@@ -816,8 +880,8 @@ more padding on the right to avoid overlap
     font-size: 16px;
     font-weight: 600;
     border-radius: var(--global-borderRadius);
-    border: 1px solid var(--button-borderColor);
-    background-color: var(--button-backgroundColor);
+    border: 1px solid var(--global-color-neutral-xxxx-dark);
+    background-color: var(--global-color-neutral-xxxx-dark);
     color: #fff;
     line-height: calc(var(--global-baseline) * 3);
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
@@ -827,23 +891,107 @@ more padding on the right to avoid overlap
     transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
 }
 
-.c-button:hover {
-    border-color: var(--button-hover-borderColor);
-    background-color: var(--button-hover-backgroundColor);
+.c-button--answer:hover {
+    border-color: var(--global-color-neutral-xxx-dark);
+    background-color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
-.c-button:focus {
-    background-color: var(--button-focus-backgroundColor);
-    border-color: var(--button-focus-borderColor);
-    box-shadow: var(--button-focus-boxShadow);
+.c-button--answer:focus {
+    background-color: var(--global-color-neutral-xxx-dark);
+    border-color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
-.c-button:active {
-    background-color: var(--button-active-backgroundColor);
-    border-color: var(--button-active-borderColor);
-    box-shadow: var(--button-active-boxShadow, 0);
+.c-button--answer:active {
+    background-color: var(--global-color-neutral-xxx-dark);
+    border-color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
+
+.c-button--a{
+    background-color: #FF0000;
+    border-color:  #FF0000;;
+}
+.c-button--a:hover{
+    background-color: rgba(255,0,0,0.8);
+    border-color:  rgba(255,0,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--a:focus {
+    background-color: rgba(255,0,0,0.8);
+    border-color: rgba(255,0,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--a:active{
+    background-color: rgba(255,0,0,0.8);
+    border-color:  rgba(255,0,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+
+.c-button--b{
+    background-color: #0000FF;
+    border-color: #0000FF;
+}
+
+.c-button--b:hover{
+    background-color: rgba(0,0,255,0.8);
+    border-color:  rgba(0,0,255,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--b:focus {
+    background-color: rgba(0,0,255,0.8);
+    border-color: rgba(0,0,255,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--b:active{
+    background-color: rgba(0,0,255,0.8);
+    border-color:  rgba(0,0,255,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);   
+}
+
+.c-button--c{
+    background-color: rgba(184,83,15,1);
+    border-color: rgba(184,83,15,1);
+}
+
+.c-button--c:hover{
+    background-color: rgba(184,83,15,0.8);
+    border-color:  rgba(184,83,15,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--c:focus {
+    background-color: rgba(184,83,15,0.8);
+    border-color: rgba(184,83,15,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--c:active{
+    background-color: rgba(184,83,15,0.8);
+    border-color:  rgba(184,83,15,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);    
+}
+
+.c-button--d{
+    background-color: rgba(0,128,0,1);
+    border-color: rgba(0,128,0,1);
+}
+
+.c-button--d:hover{
+    background-color: rgba(0,128,0,0.8);
+    border-color:  rgba(0,128,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--d:focus {
+    background-color: rgba(0,128,0,0.8);
+    border-color: rgba(0,128,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--d:active{
+    background-color: rgba(0,128,0,0.8);
+    border-color:  rgba(0,128,0,0.8);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);  
+}
 /*
     Component: Option list
 */
