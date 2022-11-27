@@ -171,8 +171,8 @@
                                 Category: history
                             </h2>
                             <div class="c-component-range">
-                                <Label for="range-id">Difficulty:</Label>
-                                <input class="c-range js-range" type="range" id="range-id" min="1" max="10" value="5"
+                                <Label for="range-id-front">Difficulty:</Label>
+                                <input class="c-range js-range" type="range" id="range-id-front" min="1" max="10" value="5"
                                     disabled>
                             </div>
                         </div>
@@ -182,22 +182,22 @@
                             </h2>
                             <div class="c-grid">
                                 <div class="c-grid__option">
-                                    <button class="o-button-reset c-button c-button--a js-answer-a">
+                                    <button class="o-button-reset c-button c-button--a js-answer js-answer-a">
                                         A. Neil Armstrong
                                     </button>
                                 </div>
                                 <div class="c-grid__option">
-                                    <button class="o-button-reset c-button c-button--b js-answer-b">
+                                    <button class="o-button-reset c-button c-button--b js-answer js-answer-b">
                                         B. Buzz Aldrin
                                     </button>
                                 </div>
                                 <div class="c-grid__option">
-                                    <button class="o-button-reset c-button c-button--c js-answer-c">
+                                    <button class="o-button-reset c-button c-button--c js-answer js-answer-c">
                                         C. Allan Sheppard
                                     </button>
                                 </div>
                                 <div class="c-grid__option">
-                                    <button class="o-button-reset c-button c-button--d js-answer-d">
+                                    <button class="o-button-reset c-button c-button--d js-answer js-answer-d">
                                         C. Allan Sheppard
                                     </button>
                                 </div>
@@ -215,15 +215,15 @@
                                 Category: history
                             </h2>
                             <div class="c-component-range">
-                                <Label for="range-id">Difficulty:</Label>
-                                <input class="c-range js-range" type="range" id="range-id" min="1" max="10" value="5">
+                                <Label for="range-id-answers">Difficulty:</Label>
+                                <input class="c-range js-range" type="range" id="range-id-answers" min="1" max="10" value="5">
                             </div>
                         </div>
                         <div class="c-card__body">
                             <h2 class="c-card__title js-question">
                                 Who was the first American in space?
                             </h2>
-                            <h2 class="c-answer-feedbacktext-false">
+                            <h2 class="c-answer-feedbacktext c-answer-feedbacktext-false">
                                 False!
                             </h2>
                             <div class="c-percentages">
@@ -235,8 +235,8 @@
                             <div class="c-grid">
                                 <div class="c-grid__option">
                                     <button
-                                        class="o-button-reset c-button c-button--a  c-answer-a-feedback js-answer-a">
-                                        A. Neil Armstrong
+                                        class="o-button-reset c-button c-button--a  c-answer-a-solution   js-answer-box-a">
+                                        <span class="js-answer-a">A. Neil Armstrong</span>
                                         <svg class="c-answer-svg c-false-icon-a" xmlns="http://www.w3.org/2000/svg"
                                             height="48" width="48">
                                             <use xlink:href="#icon-close"></use>
@@ -249,8 +249,8 @@
                                 </div>
                                 <div class="c-grid__option">
                                     <button
-                                        class="o-button-reset c-button c-button--b  c-answer-b-feedback js-answer-b">
-                                        B. Buzz Aldrin
+                                        class="o-button-reset c-button c-button--b  c-answer-b-solution  js-answer-box-b">
+                                        <span class="js-answer-b">B. Buzz Aldrin</span>
                                         <svg class="c-answer-svg c-false-icon-b" xmlns="http://www.w3.org/2000/svg"
                                             height="48" width="48">
                                             <use xlink:href="#icon-close"></use>
@@ -262,8 +262,8 @@
                                     </button>
                                 </div>
                                 <div class="c-grid__option">
-                                    <button class="o-button-reset c-button c-button--c c-answer-c-feedback js-answer-c">
-                                        C. Allan Sheppard
+                                    <button class="o-button-reset c-button c-button--c c-answer-c-solution  js-answer-box-c">
+                                        <span class="js-answer-c ">C. Allan Sheppard</span>
                                         <svg class="c-answer-svg c-false-icon-c" xmlns="http://www.w3.org/2000/svg"
                                             height="48" width="48">
                                             <use xlink:href="#icon-close"></use>
@@ -276,8 +276,9 @@
                                 </div>
                                 <div class="c-grid__option">
                                     <button
-                                        class="o-button-reset c-button c-button--d  c-answer-d-feedback js-answer-d">
-                                        D. Michael Collins
+                                        class="o-button-reset c-button c-button--d  c-answer-d-solution  js-answer-box-d">
+                                        <span class="js-answer-d">D. Michael Collins</span>
+                                        
                                         <svg class="c-answer-svg c-false-icon-d" xmlns="http://www.w3.org/2000/svg"
                                             height="48" width="48">
                                             <use xlink:href="#icon-close"></use>
@@ -297,15 +298,15 @@
                                 Category: history
                             </h2>
                             <div class="c-component-range">
-                                <Label for="range-id">Difficulty:</Label>
-                                <input class="c-range js-range" type="range" id="range-id" min="1" max="10" value="5">
+                                <Label for="range-id-back">Difficulty:</Label>
+                                <input class="c-range js-range" type="range" id="range-id-back" min="1" max="10" value="5">
                             </div>
                         </div>
                         <div class="c-card__body c-card__body-back">
                             <h2 class="c-card__title js-question">
                                 Who was the first American in space?
                             </h2>
-                            <h2 class="c-card__title">
+                            <h2 class="c-card__title js-answer-def">
                                 Alan Sheppard
                             </h2>
                         </div>

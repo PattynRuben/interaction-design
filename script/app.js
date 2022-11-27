@@ -15,11 +15,67 @@ const listenToReloadButton = function () {
     button.addEventListener('click', function () {
       console.log('button question clicked');
       document.querySelector('.c-card--front').style.display = 'block';
-      
+      document.querySelector('.c-card--answers').style.display = 'none';
       if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
         document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
       }
       showData(data);
+    });
+  });
+};
+const callbackCorrectAnswer = function (jsonObject) {
+  console.log(jsonObject);
+};
+const callbackFalseAnswer = function (jsonObject) {
+  console.log(jsonObject);
+};
+
+const addNumberToAnswer = function (id) {
+  switch (id) {
+    case 'a':
+      console.log('a');
+      globalStukData['answers-a'] = parseInt(globalStukData['answers-a']) + 1;
+      console.log(globalStukData);
+      putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
+      break;
+    case 'b':
+      console.log('b');
+      globalStukData['answers-b'] = parseInt(globalStukData['answers-b']) + 1;
+      putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
+      break;
+    case 'c':
+      console.log('c');
+      globalStukData['answers-c'] = parseInt(globalStukData['answers-c']) + 1;
+      putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
+      break;
+    case 'd':
+      console.log('d');
+      globalStukData['answers-d'] = parseInt(globalStukData['answers-a']) + 1;
+      putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
+      break;
+    default:
+      console.log('error');
+  }
+};
+const listenToAnswers = function () {
+  document.querySelectorAll('.js-answer').forEach((answer) => {
+    answer.addEventListener('click', function (e) {
+      console.log('button clicked');
+      let id = this.getAttribute('id');
+      addNumberToAnswer(id);
+      if (id == globalCorrectAnswer) {
+        console.log('correct');
+        document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-false');
+        document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-correct');
+        document.querySelector('.c-answer-feedbacktext').innerHTML = 'Correct!';
+      } else {
+        console.log('false');
+        document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-true');
+        document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-false');
+        document.querySelector('.c-answer-feedbacktext').innerHTML = 'False!';
+      }
+      document.querySelector('.c-card--front').style.display = 'none';
+      document.querySelector('.c-card--answers').style.display = 'block';
     });
   });
 };
@@ -175,6 +231,7 @@ const init = function () {
 
   getQuestions();
   listenToButtonAnswerQuestion();
+  listenToAnswers();
   listenToReloadButton();
 };
 
