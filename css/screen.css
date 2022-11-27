@@ -81,7 +81,7 @@
 html {
     background-color: var(--global-html-backgroundColor);
     color: var(--global-html-color);
-    font-size: 100%;
+    font-size: 16px;
     line-height: 1.5;
     font-family: "Inter Web", Helvetica, arial, sans-serif;
     box-sizing: border-box;
@@ -142,27 +142,27 @@ h3 {
 }
 
 h1 {
-    font-size: 2.25rem;
-    line-height: 3rem;
+    font-size: 36px;
+    line-height: 48px;
     margin: 0 0 var(--global-whitespace);
 }
 
 h2 {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 32px;
+    line-height: 40px;
     margin: 0 0 var(--global-whitespace);
 }
 
 h3 {
-    font-size: 1.625rem;
-    line-height: 2rem;
+    font-size: 26px;
+    line-height: 32px;
     margin: 0 0 var(--global-whitespace);
 }
 
 h4,
 h5,
 h6 {
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 600;
     line-height: 24px;
     margin: 0 0 var(--global-whitespace);
@@ -190,8 +190,8 @@ li ol {
 
 blockquote {
     font-style: normal;
-    font-size: 1.4375rem;
-    line-height: 2rem;
+    font-size: 23px;
+    line-height: 32px;
     margin: 0 0 var(--global-whitespace);
 }
 
@@ -202,8 +202,8 @@ blockquote * {
 
 figcaption {
     font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    font-size: 12px;
+    line-height: 16px;
     margin-top: var(--global-whitespace-sm);
 }
 
@@ -260,9 +260,10 @@ input::placeholder {
     padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
-.o-row--generator {
+.o-row--login {
     min-height: 100vh;
-
+    display: flex;
+    align-items: center;
 }
 
 /* size modifiers */
@@ -302,7 +303,7 @@ input::placeholder {
     margin-right: auto;
     max-width: 79.5em;
     /* 79.5 * 16px = 1272 */
-    width: 100%
+    width: 100%;
 }
 
 /*
@@ -517,14 +518,6 @@ input::placeholder {
 #COMPONENTS
 \*------------------------------------*/
 
-
-.c-container--test{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 100vh;
-}
 /*
     Component: Logo
     ---
@@ -532,39 +525,19 @@ input::placeholder {
 */
 
 .c-logo {
-    --logo__path--1--Fill: var(--global-color-neutral-xxxx-dark);
-    --logo__path--2--Fill: var(--global-color-alpha);
-    --logo__path--3--Fill: var(--global-color-alpha-x-dark);
-    height: 48px;
+    height: var(--global-whitespace-xl);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 24px;
-    margin-bottom: 24px;
-    width: 100%;
-
+    margin-bottom: var(--global-whitespace-xl);
 }
 
 .c-logo__symbol {
     height: 100%;
 }
 
-.c-logo__path--1 {
-    fill: var(--logo__path--1--Fill);
-}
-
-.c-logo__path--2 {
-    fill: var(--logo__path--2--Fill);
-}
-
-.c-logo__path--3 {
-    fill: var(--logo__path--3--Fill);
-}
-.test-container{
-    height: 500px;
-    width: 300px;
-    background-color: hotpink;
-
+.c-logo__path--white{
+    fill: white;
 }
 
 /*
@@ -573,12 +546,81 @@ input::placeholder {
     Card with box shadow
 */
 
+.c-card {
+    --card-backgroundColor: White;
+    --card__footer-borderColor: var(--global-color-neutral-xxx-light);
+    --card-borderRadius: var(--global-borderRadius);
+    background-color: var(--card-backgroundColor);
+    margin-bottom: var(--global-whitespace);
+    border-radius: var(--card-borderRadius);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
+    overflow: hidden;
+}
+
+/* Add padding to child for more flexibility */
+.c-card__header,
+.c-card__body,
+.c-card__footer {
+    padding: var(--global-whitespace) var(--global-whitespace) 0;
+    overflow: auto;
+    /* Fix margin collapse */
+}
+
+.c-card__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--card__footer-borderColor);
+    padding-bottom: var(--global-whitespace);
+}
+.c-card__body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.c-card__category{
+    font-size: 14px;
+    margin: 0;
+    line-height: 16px;
+    font-weight: 600;
+}
+.c-component-range{
+    display: flex;
+    gap: 8px;
+}
+.c-component__footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--card__footer-borderColor);
+    padding: var(--global-whitespace);
+}
+
+.c-card__title {
+    text-align: center;
+    font-size: 18px;
+    line-height: var(--global-whitespace);
+    font-weight: 600;
+}
+
+@media (min-width: 27em) {
+    .c-card__body {
+        padding: var(--global-whitespace-xl) var(--global-whitespace-xl) var(--global-whitespace);
+    }
+
+    .c-card__title {
+        margin-bottom: var(--global-whitespace-xl);
+    }
+}
+
+
 .c-flip-card{
+    height: 500px;
+    width: 327px;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
-    width: 50vw;
-    height: 50vh;
     perspective: 1000px;
 }
 .c-flip--inner{
@@ -595,6 +637,9 @@ input::placeholder {
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
 }
+.c-card--front{
+    display: none;
+}
 .c-flip--inner.is-flipped{
     transform: rotateY(180deg);
 }
@@ -602,79 +647,57 @@ input::placeholder {
     transform: rotateY(180deg);
 }
 
-.c-card {
-    height: 100%;
-    width: 100%;
-    --card-backgroundColor: White;
-    --card__footer-borderColor: var(--global-color-neutral-xxx-light);
-    --card-borderRadius: var(--global-borderRadius);
-    background-color: var(--card-backgroundColor);
-    margin-bottom: var(--global-whitespace);
-    border-radius: var(--card-borderRadius);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
-    overflow: hidden;
+
+.c-card--back{
+    background-color: var(--global-color-neutral-xxxx-dark);
+    color: var(--global-color-neutral-xxxx-light);
 }
-
-/* Add padding to child for more flexibility */
-
-.c-component-range{
+.c-card__body-back{
     display: flex;
-    gap: 8px;
-}
-
-.c-card__header{
-    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--card__footer-borderColor);
-    height: 10vh;
-    margin: auto;
+    justify-content: space-evenly;
+    height: 249px;
 }
-
-
-
-.c-card__title {
-    text-align: center;
-    font-size: 1.125rem;
-    line-height: 2rem;
-    font-weight: 600;
-}
-.c-card__category {
-    text-align: center;
-    font-size: 0.875rem;
-    line-height: 1.3125rem;
-    font-weight: 400;
-    margin: 0;
-}
-
-
-@media (min-width: 27em) {
-    .c-card__body {
-        padding: var(--global-whitespace-xl) var(--global-whitespace-xl) var(--global-whitespace);
-    }
-
-    .c-card__title {
-        margin-bottom: var(--global-whitespace-xl);
-    }
-}
-
-
-/*
-    Component: grid
-    ---
-    grid 4 x 4
-*/
-
-.c-grid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 10px;
+.c-percentages{
     width: 100%;
-    height: 100%;
-    position: relative;
-    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 8px;
+}
+.c-rectangle-percentage{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: calc(var(--global-baseline) * 2);
+    font-weight: 600;
+    padding: 4px 5px;
+    height: 30px;
+    width: 60px;
+    border-radius: 5px;
+    box-shadow:  inset 0 0 0 1px var(--global-button-borderColor);
+    background-color: var(--global-color-neutral-xxxx-dark);
+    color: white;
+    outline: none;
+    transition: all var(--global-transition-timing-alpha);
+}
+.c-percentage-a{
+    background-color: #FF0000;
+    color: white;
+}
+.c-percentage-b{
+    background-color: #0000FF;
+    color: white;
+}
+.c-percentage-c{
+    background-color: #EA6813;
+    color: white;
+}
+.c-percentage-d{
+    background-color: #008000;
+    color: white;
 }
 
 /*
@@ -687,6 +710,7 @@ input::placeholder {
     -webkit-appearance: none;
     appearance: none;
     height: 20px;
+    width:100px;
     background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(255,255,0,1) 50%, rgba(255,0,0,1) 100%);
     outline: none;
     -webkit-transition: .2s;
@@ -711,6 +735,91 @@ input::placeholder {
     background: #04AA6D;
     cursor: pointer;
 }
+/*
+    Component: Grid
+    ---
+    Everything form related here
+*/
+
+.c-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.c-answer-a{
+    background-color: #FF0000;
+    border: var(--global-borderWidth) solid #FF0000;
+}
+.c-answer-a-feedback{
+    background-color: #FF0000;
+    border: var(--global-borderWidth) solid #FF0000;
+    opacity: 0.5;
+}
+
+.c-answer-b{
+    background-color: #0000FF;
+    border: var(--global-borderWidth) solid #0000FF;
+}
+.c-answer-b-feedback{
+    background-color: #0000FF;
+    border: var(--global-borderWidth) solid #0000FF;
+    opacity: 0.5;
+}
+
+.c-answer-c{
+    background-color: #B8530F;
+    border: var(--global-borderWidth) solid #B8530F;
+}
+.c-answer-c-feedback{
+    background-color: #B8530F;
+    border: var(--global-borderWidth) solid #B8530F;
+    opacity: 0.5;
+}
+
+.c-answer-d{
+    background-color: #008000;
+    border: var(--global-borderWidth) solid #008000;
+}
+
+.c-answer-d-feedback{
+    background-color: #008000;
+    border: var(--global-borderWidth) solid #008000;
+    opacity: 0.5;
+}
+
+ .c-answer-feedbacktext-correct{
+    color: #00FF00;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.c-answer-feedbacktext-false{
+    color: #FF0000;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {}
+
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
 
 /*
     Component: Forms
@@ -824,9 +933,11 @@ more padding on the right to avoid overlap
 .c-toggle-password__checkbox:checked+.c-toggle-password__label .c-toggle-password__icon--hide{
     display: block;
 }
+
 .c-toggle-password__checkbox:checked+.c-toggle-password__label .c-toggle-password__icon--show{
     display: none;
 }/*
+
 /* option input for checkboxes and radio buttons */
 
 .c-option {
@@ -896,8 +1007,8 @@ more padding on the right to avoid overlap
     --button-active-backgroundColor: var(--global-color-alpha-dark);
     --button-focus-backgroundColor: var(--global-color-alpha);
     --button-focus-boxShadow: var(--global-input-focus-boxShadow);
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 400;
     border-radius: var(--global-borderRadius);
     border: 1px solid var(--global-color-neutral-xxxx-dark);
     background-color: var(--global-color-neutral-xxxx-dark);
@@ -908,6 +1019,10 @@ more padding on the right to avoid overlap
     outline: none;
     box-shadow: var(--button-boxShadow, 0);
     transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .c-button--answer:hover {
@@ -1010,6 +1125,39 @@ more padding on the right to avoid overlap
     background-color: rgba(0,128,0,0.8);
     border-color:  rgba(0,128,0,0.8);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);  
+}
+
+.c-button--back{
+    background-color: var(--global-color-neutral-xxxx-light);
+    color: var(--global-color-neutral-xxxx-dark);
+    font-weight: 700;
+}
+
+.c-logo--dark{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--global-color-neutral-xxxx-dark);
+    color: white;
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow:  inset 0 0 0 1px var(--global-button-borderColor);
+    outline: none;
+    transition: all var(--global-transition-timing-alpha);
+    border: var(--global-color-neutral-xxxx-dark);;
+}
+.c-logo--dark:hover{
+    background-color: var(--global-color-neutral-xxx-dark);
+}
+
+.c-answer-svg{
+    height: 16px;
+    width: 16px;
+    fill: white;
 }
 /*
     Component: Option list
