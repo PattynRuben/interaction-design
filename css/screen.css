@@ -547,6 +547,8 @@ input::placeholder {
 */
 
 .c-card {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
     --card-backgroundColor: White;
     --card__footer-borderColor: var(--global-color-neutral-xxx-light);
     --card-borderRadius: var(--global-borderRadius);
@@ -571,16 +573,20 @@ input::placeholder {
     align-items: center;
     border-bottom: 1px solid var(--card__footer-borderColor);
     padding-bottom: var(--global-whitespace-xs);
+    grid-row: 1;
 }
 .c-card__body{
+    grid-row: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    min-height:366px;
+    justify-content: space-evenly;
+    padding-bottom: var(--global-whitespace-sm);
+    flex-grow: 0;
+    height: 463px;
 }
 .c-card__category{
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     margin: 0;
     line-height: 1rem;
     font-weight: 600;
@@ -603,6 +609,7 @@ input::placeholder {
     line-height: 1.6875rem;
     font-weight: 600;
     margin-bottom: 0;
+
 }
 
 .c-flip-card{
@@ -740,7 +747,8 @@ input::placeholder {
     width: 100%;
     height: 100%;
     position: relative;
-    margin-bottom: 24px;
+    padding: 24px;
+    /*margin-bottom: 24px;*/
 }
 
 .c-answer-a{
@@ -1036,20 +1044,17 @@ more padding on the right to avoid overlap
     outline: none;
     box-shadow: var(--button-boxShadow, 0);
     transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
-    display: flex;
+    /*display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    flex-grow: 0;*/
 }
 
 .c-button--answer{
     height: auto;
     max-width: 250px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
 }
 
 .c-button--answer:hover {
