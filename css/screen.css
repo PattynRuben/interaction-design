@@ -523,6 +523,10 @@ input::placeholder {
     ---
     Website main logo
 */
+.c-span{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
 
 .c-logo {
     height: var(--global-whitespace-xl);
@@ -592,7 +596,7 @@ input::placeholder {
     font-size: 0.75rem;
     margin: 0;
     line-height: 1rem;
-    font-weight: 600;
+    font-weight: 300;
 }
 .c-component-range{
     display: flex;
@@ -665,7 +669,7 @@ input::placeholder {
 .c-rectangle-percentage{
     display: inline-block;
     text-decoration: none;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     line-height: 1rem;
     font-weight: 600;
     padding: 4px 5px;
@@ -802,74 +806,6 @@ input::placeholder {
     color: #FF0000;
 }
 
-/* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-    .c-flip-card{
-        height: 600px;
-        width: 400px;
-    }
-    
-    .c-card__header,
-    .c-card__body,
-    .c-card__footer{
-        padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
-        overflow: auto;
-        /* Fix margin collapse */
-    }
-    .c-card__header{
-        padding-bottom: var(--global-whitespace-md);
-    }
-    .c-card__category{
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-    .c-card__title{
-        font-size: 1rem;
-        line-height: 2rem;
-    }
-    .c-rectangle-percentage{
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-    .c-answer-feedbacktext{
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-    .c-label{
-        font-size: 1rem;
-    line-height: 1.5rem;
-    }
-
-}
-
-
-/* Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-    .c-logo{
-        height: 64px;
-    }
-    .c-flip-card{
-        height: 600px;
-        width: 500px;
-    }
-}
-
-
-/* Large devices (landscape tablets, desktops, 992px and up)*/
-@media (min-width: 992px) {
-
-}
-
-
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {}
-*/
-
-/*
-    Component: Forms
-    ---
-    Everything form related here
-*/
 
 
 
@@ -1000,6 +936,7 @@ more padding on the right to avoid overlap
     padding-bottom: 0;
     font-size: 0.875rem;
     line-height: 1rem;
+    font-weight: 300;
 }
 
 .c-label--dark{
@@ -1055,7 +992,7 @@ more padding on the right to avoid overlap
     --button-focus-backgroundColor: var(--global-color-alpha);
     --button-focus-boxShadow: var(--global-input-focus-boxShadow);
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: 300;
     border-radius: var(--global-borderRadius);
     border: 1px solid var(--global-color-neutral-xxxx-dark);
     background-color: var(--global-color-neutral-xxxx-dark);
@@ -1952,6 +1889,116 @@ more padding on the right to avoid overlap
     EXAMPLE Media Queries for Responsive Design.
     These examples override the primary ('mobile first') styles.
     USE THEM INLINE!
+*/
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .c-flip-card{
+        height: 600px;
+        width: 400px;
+    }
+    
+    .c-card__header,
+    .c-card__body,
+    .c-card__footer{
+        padding: var(--global-whitespace-md) var(--global-whitespace-md) 0;
+        overflow: auto;
+        /* Fix margin collapse */
+    }
+    .c-card__header{
+        padding-bottom: var(--global-whitespace-md);
+    }
+    .c-card__category{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .c-card__title{
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+    .c-rectangle-percentage{
+        font-size: 0.875rem;
+        line-height: 1rem;
+    }
+    .c-answer-feedbacktext{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .c-label{
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .c-logo{
+        height: 64px;
+    }
+    .c-flip-card{
+        height: 650px;
+        width: 550px;
+    }
+    .c-card__header,
+    .c-card__body,
+    .c-card__footer{
+        padding: 24px 24px 0;
+        overflow: auto;
+        /* Fix margin collapse */
+    }
+    .c-card__header{
+        padding-bottom: 24px;
+    }
+    .c-card__category{
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+    .c-card__title{
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+    .c-rectangle-percentage{
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+    .c-answer-feedbacktext{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .c-label{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .c-button{
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+    }
+    .c-span{
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+    .c-logo__path--white{
+        height: 24px;
+        width: 24px;
+    }
+}
+
+
+/* Large devices (landscape tablets, desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Component: Forms
+    ---
+    Everything form related here
 */
 
 /* Extra small devices (portrait phones, less than 576px)
