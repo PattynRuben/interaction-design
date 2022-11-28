@@ -551,7 +551,6 @@ input::placeholder {
     --card__footer-borderColor: var(--global-color-neutral-xxx-light);
     --card-borderRadius: var(--global-borderRadius);
     background-color: var(--card-backgroundColor);
-    margin-bottom: var(--global-whitespace);
     border-radius: var(--card-borderRadius);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
     overflow: hidden;
@@ -561,7 +560,7 @@ input::placeholder {
 .c-card__header,
 .c-card__body,
 .c-card__footer{
-    padding: var(--global-whitespace) var(--global-whitespace) 0;
+    padding: var(--global-whitespace-sm) var(--global-whitespace-sm) 0;
     overflow: auto;
     /* Fix margin collapse */
 }
@@ -571,12 +570,14 @@ input::placeholder {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--card__footer-borderColor);
-    padding-bottom: var(--global-whitespace);
+    padding-bottom: var(--global-whitespace-xs);
 }
 .c-card__body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    min-height:366px;
 }
 .c-card__category{
     font-size: 0.875rem;
@@ -586,11 +587,14 @@ input::placeholder {
 }
 .c-component-range{
     display: flex;
+    align-items: center;
     gap: 8px;
 }
 .c-card__footer{
-    
-    padding-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: var(--global-whitespace-xs);
 }
 
 .c-card__title {
@@ -598,21 +602,11 @@ input::placeholder {
     font-size: 1.125rem;
     line-height: 1.6875rem;
     font-weight: 600;
+    margin-bottom: 0;
 }
-
-@media (min-width: 27em) {
-    .c-card__body {
-        padding: var(--global-whitespace-xl) var(--global-whitespace-xl) var(--global-whitespace);
-    }
-
-    .c-card__title {
-        margin-bottom: var(--global-whitespace-xl);
-    }
-}
-
 
 .c-flip-card{
-    height: 475px;
+    height: 500px;
     width: 327px;
     margin-left: auto;
     margin-right: auto;
@@ -648,6 +642,7 @@ input::placeholder {
     background-color: var(--global-color-neutral-xxxx-dark);
     color: var(--global-color-neutral-xxxx-light);
 }
+
 .c-card__body-back{
     display: flex;
     flex-direction: column;
@@ -788,8 +783,11 @@ input::placeholder {
     border: var(--global-borderWidth) solid #008000;
     opacity: 0.5;
 }
+.c-answer-feedbacktext{
+    margin-bottom: 8px;
+}
 
- .c-answer-feedbacktext-correct{
+.c-answer-feedbacktext-correct{
     color: #00FF00;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -802,16 +800,38 @@ input::placeholder {
 }
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    .c-flip-card{
+        height: 600px;
+        width: 400px;
+    }
+    /*.c-card__body-back{
+        height: 374px;
+    }*/
+    .c-card__body{
+        min-height: 374px;
+    }
+    .c-card__footer{
+        height: auto;
+    }
+
+}
 
 
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
-*/
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+    .c-flip-card{
+        height: 550px;
+        width: 500px;
+    }
+}
 
-/* Large devices (landscape tablets, desktops, 992px and up)
-@media (min-width: 992px) {}
-*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)*/
+@media (min-width: 992px) {
+
+}
+
 
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {}
@@ -1003,13 +1023,13 @@ more padding on the right to avoid overlap
     --button-active-backgroundColor: var(--global-color-alpha-dark);
     --button-focus-backgroundColor: var(--global-color-alpha);
     --button-focus-boxShadow: var(--global-input-focus-boxShadow);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
     border-radius: var(--global-borderRadius);
     border: 1px solid var(--global-color-neutral-xxxx-dark);
     background-color: var(--global-color-neutral-xxxx-dark);
     color: #fff;
-    line-height: calc(var(--global-baseline) * 3);
+    line-height: 1.3125rem;
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     width: 100%;
     height: 100%;
@@ -1021,6 +1041,15 @@ more padding on the right to avoid overlap
     align-items: center;
     justify-content: space-between;
     text-align: center;
+}
+
+.c-button--answer{
+    height: auto;
+    max-width: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .c-button--answer:hover {
@@ -1047,18 +1076,18 @@ more padding on the right to avoid overlap
     border-color:  #FF0000;;
 }
 .c-button--a:hover{
-    background-color: rgba(255,0,0,0.8);
-    border-color:  rgba(255,0,0,0.8);
+    background-color: rgba(255,0,0,0.9);
+    border-color:  rgba(255,0,0,0.9);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 .c-button--a:focus {
-    background-color: rgba(255,0,0,0.8);
-    border-color: rgba(255,0,0,0.8);
+    background-color: rgba(255,0,0,0.9);
+    border-color: rgba(255,0,0,0.9);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 .c-button--a:active{
-    background-color: rgba(255,0,0,0.8);
-    border-color:  rgba(255,0,0,0.8);
+    background-color: rgba(255,0,0,0.9);
+    border-color:  rgba(255,0,0,0.9);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
