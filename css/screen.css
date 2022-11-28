@@ -529,7 +529,7 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--global-whitespace);
+    margin-bottom: var(--global-whitespace-md);
 }
 
 .c-logo__symbol {
@@ -537,6 +537,8 @@ input::placeholder {
 }
 
 .c-logo__path--white{
+    height: 24px;
+    width: 24px;
     fill: white;
 }
 
@@ -548,7 +550,7 @@ input::placeholder {
 
 .c-card {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     --card-backgroundColor: White;
     --card__footer-borderColor: var(--global-color-neutral-xxx-light);
     --card-borderRadius: var(--global-borderRadius);
@@ -580,10 +582,11 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding-bottom: var(--global-whitespace-sm);
+    height: 450px;
     flex-grow: 0;
-    height: 463px;
+
 }
 .c-card__category{
     font-size: 0.75rem;
@@ -613,8 +616,8 @@ input::placeholder {
 }
 
 .c-flip-card{
-    height: 500px;
-    width: 327px;
+    height: 510px;
+    width: 312px;
     margin-left: auto;
     margin-right: auto;
     background-color: transparent;
@@ -650,13 +653,7 @@ input::placeholder {
     color: var(--global-color-neutral-xxxx-light);
 }
 
-.c-card__body-back{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 302px;
-}
+
 .c-percentages{
     width: 100%;
     display: flex;
@@ -697,6 +694,7 @@ input::placeholder {
     background-color: #008000;
     color: white;
 }
+
 
 /*
     Component: Range
@@ -740,14 +738,13 @@ input::placeholder {
 */
 
 .c-grid{
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 5px;
-    width: 100%;
-    height: 100%;
+
     position: relative;
-    padding: 24px;
+    padding-bottom: 8px;
     /*margin-bottom: 24px;*/
 }
 
@@ -977,10 +974,10 @@ more padding on the right to avoid overlap
 .c-label {
     color: var(--label-color, var(--global-color-neutral-xx-dark));
     margin-bottom: 0;
-    padding-bottom: var(--global-whitespace-sm);
-    font-size: 14px;
-    line-height: 16px;
-    color: var(--label-color,var(--global-color-neutral-xx-dark));
+    padding-bottom: 0;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    color: white;
 }
 
 .c-label--option {
@@ -1038,25 +1035,28 @@ more padding on the right to avoid overlap
     background-color: var(--global-color-neutral-xxxx-dark);
     color: #fff;
     line-height: 1.3125rem;
-    padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+    padding: 8px;
+    /*padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);*/
     width: 100%;
     height: 100%;
     outline: none;
     box-shadow: var(--button-boxShadow, 0);
     transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
-    /*display: flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    flex-grow: 0;*/
+    justify-content: center;
+    flex-grow: 0;
 }
 
 .c-button--answer{
     height: auto;
+    justify-content: center;
     max-width: 250px;
 }
-
+.c-button--solution{
+    justify-content: space-between;
+}
 .c-button--answer:hover {
     border-color: var(--global-color-neutral-xxx-dark);
     background-color: var(--global-color-neutral-xxx-dark);
@@ -1166,7 +1166,7 @@ more padding on the right to avoid overlap
 }
 
 .c-logo--dark{
-    height: 48px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1187,8 +1187,8 @@ more padding on the right to avoid overlap
 }
 
 .c-answer-svg{
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     fill: white;
 }
 /*

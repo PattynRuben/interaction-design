@@ -92,7 +92,7 @@ const showData = function (data) {
   }
   let questions = document.querySelectorAll('.js-question');
   for (const item of questions) {
-    item.innerHTML = `Question: ${stukdata['question']}`;
+    item.innerHTML = `${stukdata['question']}`;
   }
   let answerOptionA = document.querySelectorAll('.js-answer-a');
   for (const item of answerOptionA) {
