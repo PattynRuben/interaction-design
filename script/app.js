@@ -62,8 +62,9 @@ const listenToAnswers = function () {
     answer.addEventListener('click', function (e) {
       console.log('button clicked');
       let id = this.getAttribute('id');
-      addNumberToAnswer(id);
-      if (id == globalCorrectAnswer) {
+      console.log(id);
+      //addNumberToAnswer(id);
+      if (id === globalCorrectAnswer) {
         console.log('correct');
         document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-false');
         document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-correct');
