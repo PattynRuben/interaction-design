@@ -742,9 +742,10 @@ input::placeholder {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 5px;
-
+    width: 100%;
     position: relative;
-    padding-bottom: 8px;
+
+
     /*margin-bottom: 24px;*/
 }
 
@@ -810,15 +811,7 @@ input::placeholder {
         height: 600px;
         width: 400px;
     }
-    /*.c-card__body-back{
-        height: 374px;
-    }*/
-    .c-card__body{
-        min-height: 374px;
-    }
-    .c-card__footer{
-        height: auto;
-    }
+    
 
 }
 
@@ -972,11 +965,14 @@ more padding on the right to avoid overlap
 */
 
 .c-label {
-    color: var(--label-color, var(--global-color-neutral-xx-dark));
+    color: black;
     margin-bottom: 0;
     padding-bottom: 0;
     font-size: 0.875rem;
     line-height: 1rem;
+}
+
+.c-label--dark{
     color: white;
 }
 
@@ -1163,6 +1159,22 @@ more padding on the right to avoid overlap
     background-color: var(--global-color-neutral-xxxx-light);
     color: var(--global-color-neutral-xxxx-dark);
     font-weight: 700;
+}
+
+.c-button--back:hover{
+    background-color: var(--global-color-neutral-xxx-light);
+    color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--back:focus {
+    background-color: var(--global-color-neutral-xxx-light);
+    color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+}
+.c-button--back:active{
+    background-color: var(--global-color-neutral-xxx-light);
+    color: var(--global-color-neutral-xxx-dark);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);  
 }
 
 .c-logo--dark{
