@@ -63,6 +63,7 @@ const listenToAnswers = function () {
       console.log('button clicked');
       let id = this.getAttribute('id');
       console.log(id);
+      console.log(globalCorrectAnswer);
       //addNumberToAnswer(id);
       if (id === globalCorrectAnswer) {
         console.log('correct');
@@ -86,7 +87,7 @@ const showData = function (data) {
   console.log(random);
   let stukdata = data[random];
   globalStukData = stukdata;
-  globalCorrectAnswer = stukdata['correct-option'];
+  globalCorrectAnswer = `${stukdata['correct-option']}`;
   let scrollBars = document.querySelectorAll('.js-range');
   for (const item of scrollBars) {
     item.value = stukdata['difficulty'];
