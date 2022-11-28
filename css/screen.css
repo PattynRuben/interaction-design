@@ -529,7 +529,7 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--global-whitespace-xl);
+    margin-bottom: var(--global-whitespace);
 }
 
 .c-logo__symbol {
@@ -560,7 +560,7 @@ input::placeholder {
 /* Add padding to child for more flexibility */
 .c-card__header,
 .c-card__body,
-.c-card__footer {
+.c-card__footer{
     padding: var(--global-whitespace) var(--global-whitespace) 0;
     overflow: auto;
     /* Fix margin collapse */
@@ -577,7 +577,6 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
 }
 .c-card__category{
     font-size: 0.875rem;
@@ -589,12 +588,9 @@ input::placeholder {
     display: flex;
     gap: 8px;
 }
-.c-component__footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid var(--card__footer-borderColor);
-    padding: var(--global-whitespace);
+.c-card__footer{
+    
+    padding-top: 0;
 }
 
 .c-card__title {
@@ -616,7 +612,7 @@ input::placeholder {
 
 
 .c-flip-card{
-    height: 500px;
+    height: 475px;
     width: 327px;
     margin-left: auto;
     margin-right: auto;
@@ -630,7 +626,7 @@ input::placeholder {
     transition: transform 0.8s;
     transform-style: preserve-3d;
 }
-.c-card--front, .c-card--back{
+.c-card--front, .c-card--back, .c-card--answers{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -657,7 +653,7 @@ input::placeholder {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 249px;
+    height: 302px;
 }
 .c-percentages{
     width: 100%;
@@ -795,14 +791,14 @@ input::placeholder {
 
  .c-answer-feedbacktext-correct{
     color: #00FF00;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 .c-answer-feedbacktext-false{
     color: #FF0000;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 /* Small devices (landscape phones, 576px and up)*/
@@ -1016,6 +1012,7 @@ more padding on the right to avoid overlap
     line-height: calc(var(--global-baseline) * 3);
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     width: 100%;
+    height: 100%;
     outline: none;
     box-shadow: var(--button-boxShadow, 0);
     transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
@@ -1023,6 +1020,7 @@ more padding on the right to avoid overlap
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
 }
 
 .c-button--answer:hover {
