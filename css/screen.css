@@ -1040,22 +1040,22 @@ more padding on the right to avoid overlap
 
 
 .c-button--a{
-    background-color: #FF0000;
-    border-color:  #FF0000;;
+    background-color: rgba(237,0,0,1);
+    border-color:  rgba(237,0,0,1);
 }
 .c-button--a:hover{
-    background-color: rgba(255,0,0,0.9);
-    border-color:  rgba(255,0,0,0.9);
+    background-color: rgba(237,28,37,0.8);
+    border-color:  rgba(237,28,37,0.8);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 .c-button--a:focus {
-    background-color: rgba(255,0,0,0.9);
-    border-color: rgba(255,0,0,0.9);
+    background-color: rgba(237,28,37,0.8);
+    border-color: rgba(237,28,37,0.8);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 .c-button--a:active{
-    background-color: rgba(255,0,0,0.9);
-    border-color:  rgba(255,0,0,0.9);
+    background-color: rgba(237,28,37,0.8);
+    border-color:  rgba(237,28,37,0.8);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
