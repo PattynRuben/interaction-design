@@ -251,7 +251,7 @@ const drawCircleA = function () {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
             ctx.restore();
-            var fontSize = (height / 100).toFixed(2);
+            var fontSize = (height / 80).toFixed(2);
             ctx.font = fontSize + 'em sans-serif';
             ctx.fillStyle = '#9b9b9b';
             ctx.textBaseline = 'middle';
@@ -309,7 +309,7 @@ const drawCircleB = function () {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
             ctx.restore();
-            var fontSize = (height / 100).toFixed(2);
+            var fontSize = (height / 80).toFixed(2);
             ctx.font = fontSize + 'em sans-serif';
             ctx.fillStyle = '#9b9b9b';
             ctx.textBaseline = 'middle';
@@ -368,7 +368,7 @@ const drawCircleC = function () {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
             ctx.restore();
-            var fontSize = (height / 100).toFixed(2);
+            var fontSize = (height / 80).toFixed(2);
             ctx.font = fontSize + 'em sans-serif';
             ctx.fillStyle = '#9b9b9b';
             ctx.textBaseline = 'middle';
@@ -427,7 +427,7 @@ const drawCircleD = function () {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
             ctx.restore();
-            var fontSize = (height / 100).toFixed(2);
+            var fontSize = (height / 80).toFixed(2);
             ctx.font = fontSize + 'em sans-serif';
             ctx.fillStyle = '#9b9b9b';
             ctx.textBaseline = 'middle';
