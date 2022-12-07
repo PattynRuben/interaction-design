@@ -1,3 +1,4 @@
+
 'use strict';
 let data, globalCorrectAnswer, globalStukData;
 var chartProgressA, chartProgressB, chartProgressC, chartProgressD;
