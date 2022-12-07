@@ -671,14 +671,12 @@ input::placeholder {
 
 }
 
-.c-percentage-option{
-    position: relative;
-    min-height: auto;
-    width: 100%;
-    display: flex;
-    flex-grow: 1;
-}
 
+
+.c-test{
+    display: flex;
+    width: 100%;
+}
 .c-percentage-option-a{
     grid-column: 1;
     grid-row: 1;

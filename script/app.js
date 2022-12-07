@@ -454,12 +454,7 @@ const drawCircleD = function () {
     });
   }
 };
-function beforePrintHandler () {
-  myChartCircleA.resize();
-  myChartCircleB.resize();
-  myChartCircleC.resize();
-  myChartCircleD.resize();
-}
+
 
 
 const getData = async (endpoint) => {
@@ -479,6 +474,36 @@ const putData = async (endpoint, data) => {
   console.log(response);
 };
 
+const listenToBeforePrint = function(){
+  if(myChartCircleA){
+    myChartCircleA.addEventListener('beforeprint', drawCircleA);
+  }
+  if(myChartCircleB){
+    myChartCircleB.addEventListener('beforeprint', drawCircleB);
+  }
+  if(myChartCircleC){
+    myChartCircleC.addEventListener('beforeprint', drawCircleC);
+  }
+  if(myChartCircleD){
+    myChartCircleD.addEventListener('beforeprint', drawCircleD);
+  }
+}
+
+const listenToAfterPrint = function(){
+  if(myChartCircleA){
+    myChartCircleA.addEventListener('afterprint', drawCircleA);
+  }
+  if(myChartCircleB){
+    myChartCircleB.addEventListener('afterprint', drawCircleB);
+  }
+  if(myChartCircleC){
+    myChartCircleC.addEventListener('afterprint', drawCircleC);
+  }
+  if(myChartCircleD){
+    myChartCircleD.addEventListener('afterprint', drawCircleD);
+  }
+};
+
 const init = function () {
   console.log('App initialized');
 
@@ -486,16 +511,11 @@ const init = function () {
   listenToButtonAnswerQuestion();
   listenToAnswers();
   listenToReloadButton();
-  beforePrintHandler();
+  listenToBeforePrint();
+  listenToAfterPrint();
 };
-window.addEventListener('beforeprint', () => {
-  myChart.resize(600, 600);
-});
-window.addEventListener('afterprint', () => {
-  myChartCircleA.resize();
-  myChartCircleB.resize();
-  myChartCircleC.resize();
-  myChartCircleD.resize();
-});
+window.onbeforeprint = (event) => {
+  console.log('Before print');
+};
 
 document.addEventListener('DOMContentLoaded', init);
