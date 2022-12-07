@@ -661,17 +661,18 @@ input::placeholder {
 
 
 .c-percentages{
-    display: inline-grid;
+    display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px;
+    align-items: center;
     width: 100%;
-    position: relative;
-
 }
 
-.c-container-circle{
-    position: relative;
-   
+.c-percentage-option{
+    
+    border:  1px solid #000;
 }
+
 
 .c-rectangle-percentage{
     display: inline-block;

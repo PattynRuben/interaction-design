@@ -275,7 +275,7 @@ const drawCircleB = function () {
 
   if (chartProgress) {
     console.log(chartProgress);
-    chartProgress.height = 100;
+
     var myChartCircle = new Chart('chartProgressB', {
       type: 'doughnut',
       data: {
@@ -334,7 +334,7 @@ const drawCircleC = function () {
 
   if (chartProgress) {
     console.log(chartProgress);
-    chartProgress.height = 100;
+
     var myChartCircle = new Chart('chartProgressC', {
       type: 'doughnut',
       data: {
@@ -393,7 +393,7 @@ const drawCircleD = function () {
 
   if (chartProgress) {
     console.log(chartProgress);
-    chartProgress.height = 100;
+
     var myChartCircle = new Chart('chartProgressD', {
       type: 'doughnut',
       data: {
