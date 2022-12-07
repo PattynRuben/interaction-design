@@ -1,7 +1,7 @@
-
 'use strict';
 let data, globalCorrectAnswer, globalStukData;
 let percentageA, percentageB, percentageC, percentageD;
+var myChartCircleA, myChartCircleB, myChartCircleC, myChartCircleD;
 const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
@@ -117,11 +117,11 @@ const showData = function (data) {
   percentageA = Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100);
   drawCircleA();
   percentageB = Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100);
-    drawCircleB();
+  drawCircleB();
   percentageC = Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100);
-    drawCircleC();
-    percentageD = Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100);
-    drawCircleD() 
+  drawCircleC();
+  percentageD = Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100);
+  drawCircleD();
   /*document.querySelector('.c-percentage-a').innerHTML = `A: ${Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-b').innerHTML = `B: ${Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-c').innerHTML = `C: ${Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100)}%`;
@@ -225,8 +225,8 @@ const drawCircleA = function () {
 
   if (chartProgress) {
     console.log(chartProgress);
-   
-    var myChartCircle = new Chart('chartProgressA', {
+
+    myChartCircleA = new Chart('chartProgressA', {
       type: 'doughnut',
       data: {
         datasets: [
@@ -247,7 +247,6 @@ const drawCircleA = function () {
         },
         {
           beforeDraw: (chart) => {
-           
             var width = chart.chart.width,
               height = chart.chart.height,
               ctx = chart.chart.ctx;
@@ -267,7 +266,7 @@ const drawCircleA = function () {
       options: {
         maintainAspectRatio: true,
         responsive: true,
-        cutoutPercentage: 85,
+        cutoutPercentage: 70,
         rotation: Math.PI / 2,
         legend: {
           display: false,
@@ -285,7 +284,7 @@ const drawCircleB = function () {
   if (chartProgress) {
     console.log(chartProgress);
 
-    var myChartCircle = new Chart('chartProgressB', {
+    myChartCircleB = new Chart('chartProgressB', {
       type: 'doughnut',
       data: {
         datasets: [
@@ -325,7 +324,7 @@ const drawCircleB = function () {
       options: {
         maintainAspectRatio: true,
         responsive: true,
-        cutoutPercentage: 85,
+        cutoutPercentage: 70,
         rotation: Math.PI / 2,
         legend: {
           display: false,
@@ -344,7 +343,7 @@ const drawCircleC = function () {
   if (chartProgress) {
     console.log(chartProgress);
 
-    var myChartCircle = new Chart('chartProgressC', {
+    myChartCircleC = new Chart('chartProgressC', {
       type: 'doughnut',
       data: {
         datasets: [
@@ -384,7 +383,7 @@ const drawCircleC = function () {
       options: {
         maintainAspectRatio: true,
         responsive: true,
-        cutoutPercentage: 85,
+        cutoutPercentage: 70,
         rotation: Math.PI / 2,
         legend: {
           display: false,
@@ -403,7 +402,7 @@ const drawCircleD = function () {
   if (chartProgress) {
     console.log(chartProgress);
 
-    var myChartCircle = new Chart('chartProgressD', {
+    myChartCircleD = new Chart('chartProgressD', {
       type: 'doughnut',
       data: {
         datasets: [
@@ -443,7 +442,7 @@ const drawCircleD = function () {
       options: {
         maintainAspectRatio: true,
         responsive: true,
-        cutoutPercentage: 85,
+        cutoutPercentage: 70,
         rotation: Math.PI / 2,
         legend: {
           display: false,
@@ -455,6 +454,13 @@ const drawCircleD = function () {
     });
   }
 };
+function beforePrintHandler () {
+  myChartCircleA.resize();
+  myChartCircleB.resize();
+  myChartCircleC.resize();
+  myChartCircleD.resize();
+}
+
 
 const getData = async (endpoint) => {
   return fetch(endpoint)
@@ -480,6 +486,16 @@ const init = function () {
   listenToButtonAnswerQuestion();
   listenToAnswers();
   listenToReloadButton();
+  beforePrintHandler();
 };
+window.addEventListener('beforeprint', () => {
+  myChart.resize(600, 600);
+});
+window.addEventListener('afterprint', () => {
+  myChartCircleA.resize();
+  myChartCircleB.resize();
+  myChartCircleC.resize();
+  myChartCircleD.resize();
+});
 
 document.addEventListener('DOMContentLoaded', init);
