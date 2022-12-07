@@ -245,6 +245,8 @@ input::placeholder {
     color: var(--global-placeholder-color);
 }
 
+
+
 /*------------------------------------*\
 #OBJECTS
 \*------------------------------------*/
@@ -659,13 +661,18 @@ input::placeholder {
 
 
 .c-percentages{
+    display: inline-grid;
+    grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding-bottom: 8px;
+    position: relative;
+
 }
+
+.c-container-circle{
+    position: relative;
+   
+}
+
 .c-rectangle-percentage{
     display: inline-block;
     text-decoration: none;

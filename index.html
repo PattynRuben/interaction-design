@@ -16,8 +16,10 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 
+
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/screen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="script/datahandler.js"></script>
     <script src="script/app.js"></script>
     <title>Trivia question generator</title>
@@ -223,11 +225,24 @@
                             <h2 class="c-answer-feedbacktext c-answer-feedbacktext-false">
                                 False!
                             </h2>
-                            <div class="c-percentages">
-                                <div class="c-rectangle-percentage c-percentage-a">A: 25%</div>
-                                <div class="c-rectangle-percentage c-percentage-b">B: 25%</div>
-                                <div class="c-rectangle-percentage c-percentage-c">C: 25%</div>
-                                <div class="c-rectangle-percentage c-percentage-d">D: 25%</div>
+                            <div class="c-percentages" >
+                                <div class="c-container-circle">
+                                    <canvas  id="chartProgressA" ></canvas>
+                                </div>
+                                <div class="c-container-circle">
+                                    <canvas  id="chartProgressB" ></canvas>
+                                </div>
+                            
+                            
+                                <div class="c-container-circle">
+                                    <canvas  id="chartProgressC" ></canvas>
+                                </div>
+                             
+                            
+                                <div class="c-container-circle">
+                                    <canvas id="chartProgressD" ></canvas>
+                                </div>
+                                 
                             </div>
                             <div class="c-grid">
                                 <div class="c-grid__option">

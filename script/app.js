@@ -1,6 +1,6 @@
 'use strict';
 let data, globalCorrectAnswer, globalStukData;
-
+var chartProgressA, chartProgressB, chartProgressC, chartProgressD;
 const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
@@ -113,10 +113,10 @@ const showData = function (data) {
     item.innerHTML = `D: ${stukdata['option-d']}`;
   }
   let totaalPercentage = parseInt(stukdata['answers-a']) + parseInt(stukdata['answers-b']) + parseInt(stukdata['answers-c']) + parseInt(stukdata['answers-d']);
-  document.querySelector('.c-percentage-a').innerHTML = `A: ${Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100)}%`;
+  /*document.querySelector('.c-percentage-a').innerHTML = `A: ${Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-b').innerHTML = `B: ${Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-c').innerHTML = `C: ${Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100)}%`;
-  document.querySelector('.c-percentage-d').innerHTML = `D: ${Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100)}%`;
+  document.querySelector('.c-percentage-d').innerHTML = `D: ${Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100)}%`;*/
   document.querySelector('.js-answer-def').innerHTML = stukdata['answer'];
   if (stukdata['correct-option'].includes('a')) {
     console.log(stukdata['correct-option']);
@@ -211,6 +211,242 @@ const getQuestions = async () => {
   showData(data);
 };
 
+const drawCircleA = function () {
+  var chartProgress = document.getElementById('chartProgressA');
+
+  if (chartProgress) {
+    console.log(chartProgress);
+   
+    var myChartCircle = new Chart('chartProgressA', {
+      type: 'doughnut',
+      data: {
+        datasets: [
+          {
+            label: 'Africa / Population (millions)',
+            percent: 50,
+            backgroundColor: ['#5283ff'],
+          },
+        ],
+      },
+      plugins: [
+        {
+          beforeInit: (chart) => {
+            const dataset = chart.data.datasets[0];
+            chart.data.labels = [dataset.label];
+            dataset.data = [dataset.percent, 100 - dataset.percent];
+          },
+        },
+        {
+          beforeDraw: (chart) => {
+           
+            var width = chart.chart.width,
+              height = chart.chart.height,
+              ctx = chart.chart.ctx;
+            ctx.restore();
+            var fontSize = (height / 100).toFixed(2);
+            ctx.font = fontSize + 'em sans-serif';
+            ctx.fillStyle = '#9b9b9b';
+            ctx.textBaseline = 'middle';
+            var text = chart.data.datasets[0].percent + '%',
+              textX = Math.round((width - ctx.measureText(text).width) / 2),
+              textY = height / 2;
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+          },
+        },
+      ],
+      options: {
+        maintainAspectRatio: true,
+        responsive: true,
+        cutoutPercentage: 85,
+        rotation: Math.PI / 2,
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          filter: (tooltipItem) => tooltipItem.index == 0,
+        },
+      },
+    });
+  }
+};
+const drawCircleB = function () {
+  var chartProgress = document.getElementById('chartProgressB');
+
+  if (chartProgress) {
+    console.log(chartProgress);
+    chartProgress.height = 100;
+    var myChartCircle = new Chart('chartProgressB', {
+      type: 'doughnut',
+      data: {
+        datasets: [
+          {
+            label: 'Africa / Population (millions)',
+            percent: 50,
+            backgroundColor: ['#5283ff'],
+          },
+        ],
+      },
+      plugins: [
+        {
+          beforeInit: (chart) => {
+            const dataset = chart.data.datasets[0];
+            chart.data.labels = [dataset.label];
+            dataset.data = [dataset.percent, 100 - dataset.percent];
+          },
+        },
+        {
+          beforeDraw: (chart) => {
+            var width = chart.chart.width,
+              height = chart.chart.height,
+              ctx = chart.chart.ctx;
+            ctx.restore();
+            var fontSize = (height / 100).toFixed(2);
+            ctx.font = fontSize + 'em sans-serif';
+            ctx.fillStyle = '#9b9b9b';
+            ctx.textBaseline = 'middle';
+            var text = chart.data.datasets[0].percent + '%',
+              textX = Math.round((width - ctx.measureText(text).width) / 2),
+              textY = height / 2;
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+          },
+        },
+      ],
+      options: {
+        maintainAspectRatio: true,
+        responsive: true,
+        cutoutPercentage: 85,
+        rotation: Math.PI / 2,
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          filter: (tooltipItem) => tooltipItem.index == 0,
+        },
+      },
+    });
+  }
+};
+
+const drawCircleC = function () {
+  var chartProgress = document.getElementById('chartProgressC');
+
+  if (chartProgress) {
+    console.log(chartProgress);
+    chartProgress.height = 100;
+    var myChartCircle = new Chart('chartProgressC', {
+      type: 'doughnut',
+      data: {
+        datasets: [
+          {
+            label: 'Africa / Population (millions)',
+            percent: 50,
+            backgroundColor: ['#5283ff'],
+          },
+        ],
+      },
+      plugins: [
+        {
+          beforeInit: (chart) => {
+            const dataset = chart.data.datasets[0];
+            chart.data.labels = [dataset.label];
+            dataset.data = [dataset.percent, 100 - dataset.percent];
+          },
+        },
+        {
+          beforeDraw: (chart) => {
+            var width = chart.chart.width,
+              height = chart.chart.height,
+              ctx = chart.chart.ctx;
+            ctx.restore();
+            var fontSize = (height / 100).toFixed(2);
+            ctx.font = fontSize + 'em sans-serif';
+            ctx.fillStyle = '#9b9b9b';
+            ctx.textBaseline = 'middle';
+            var text = chart.data.datasets[0].percent + '%',
+              textX = Math.round((width - ctx.measureText(text).width) / 2),
+              textY = height / 2;
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+          },
+        },
+      ],
+      options: {
+        maintainAspectRatio: true,
+        responsive: true,
+        cutoutPercentage: 85,
+        rotation: Math.PI / 2,
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          filter: (tooltipItem) => tooltipItem.index == 0,
+        },
+      },
+    });
+  }
+};
+
+const drawCircleD = function () {
+  var chartProgress = document.getElementById('chartProgressD');
+
+  if (chartProgress) {
+    console.log(chartProgress);
+    chartProgress.height = 100;
+    var myChartCircle = new Chart('chartProgressD', {
+      type: 'doughnut',
+      data: {
+        datasets: [
+          {
+            label: 'Africa / Population (millions)',
+            percent: 50,
+            backgroundColor: ['#5283ff'],
+          },
+        ],
+      },
+      plugins: [
+        {
+          beforeInit: (chart) => {
+            const dataset = chart.data.datasets[0];
+            chart.data.labels = [dataset.label];
+            dataset.data = [dataset.percent, 100 - dataset.percent];
+          },
+        },
+        {
+          beforeDraw: (chart) => {
+            var width = chart.chart.width,
+              height = chart.chart.height,
+              ctx = chart.chart.ctx;
+            ctx.restore();
+            var fontSize = (height / 100).toFixed(2);
+            ctx.font = fontSize + 'em sans-serif';
+            ctx.fillStyle = '#9b9b9b';
+            ctx.textBaseline = 'middle';
+            var text = chart.data.datasets[0].percent + '%',
+              textX = Math.round((width - ctx.measureText(text).width) / 2),
+              textY = height / 2;
+            ctx.fillText(text, textX, textY);
+            ctx.save();
+          },
+        },
+      ],
+      options: {
+        maintainAspectRatio: true,
+        responsive: true,
+        cutoutPercentage: 85,
+        rotation: Math.PI / 2,
+        legend: {
+          display: false,
+        },
+        tooltips: {
+          filter: (tooltipItem) => tooltipItem.index == 0,
+        },
+      },
+    });
+  }
+};
+
 const getData = async (endpoint) => {
   return fetch(endpoint)
     .then((r) => r.json())
@@ -235,6 +471,10 @@ const init = function () {
   listenToButtonAnswerQuestion();
   listenToAnswers();
   listenToReloadButton();
+  drawCircleA();
+  drawCircleB();
+  drawCircleC();
+  drawCircleD();
 };
 
 document.addEventListener('DOMContentLoaded', init);
