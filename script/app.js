@@ -1,7 +1,7 @@
 
 'use strict';
 let data, globalCorrectAnswer, globalStukData;
-var chartProgressA, chartProgressB, chartProgressC, chartProgressD;
+let percentageA, percentageB, percentageC, percentageD;
 const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
@@ -114,6 +114,14 @@ const showData = function (data) {
     item.innerHTML = `D: ${stukdata['option-d']}`;
   }
   let totaalPercentage = parseInt(stukdata['answers-a']) + parseInt(stukdata['answers-b']) + parseInt(stukdata['answers-c']) + parseInt(stukdata['answers-d']);
+  percentageA = Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100);
+  drawCircleA();
+  percentageB = Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100);
+    drawCircleB();
+  percentageC = Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100);
+    drawCircleC();
+    percentageD = Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100);
+    drawCircleD() 
   /*document.querySelector('.c-percentage-a').innerHTML = `A: ${Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-b').innerHTML = `B: ${Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100)}%`;
   document.querySelector('.c-percentage-c').innerHTML = `C: ${Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100)}%`;
@@ -223,9 +231,9 @@ const drawCircleA = function () {
       data: {
         datasets: [
           {
-            label: 'Africa / Population (millions)',
-            percent: 50,
-            backgroundColor: ['#5283ff'],
+            label: 'Percentage option A',
+            percent: percentageA,
+            backgroundColor: ['#FF0000'],
           },
         ],
       },
@@ -282,9 +290,9 @@ const drawCircleB = function () {
       data: {
         datasets: [
           {
-            label: 'Africa / Population (millions)',
-            percent: 50,
-            backgroundColor: ['#5283ff'],
+            label: 'Percentage option B',
+            percent: percentageB,
+            backgroundColor: ['#0000FF'],
           },
         ],
       },
@@ -341,9 +349,9 @@ const drawCircleC = function () {
       data: {
         datasets: [
           {
-            label: 'Africa / Population (millions)',
-            percent: 50,
-            backgroundColor: ['#5283ff'],
+            label: 'Percentage option C',
+            percent: percentageC,
+            backgroundColor: ['#B8530F'],
           },
         ],
       },
@@ -400,9 +408,9 @@ const drawCircleD = function () {
       data: {
         datasets: [
           {
-            label: 'Africa / Population (millions)',
-            percent: 50,
-            backgroundColor: ['#5283ff'],
+            label: 'Perentage option D',
+            percent: percentageD,
+            backgroundColor: ['#008000'],
           },
         ],
       },
@@ -472,10 +480,6 @@ const init = function () {
   listenToButtonAnswerQuestion();
   listenToAnswers();
   listenToReloadButton();
-  drawCircleA();
-  drawCircleB();
-  drawCircleC();
-  drawCircleD();
 };
 
 document.addEventListener('DOMContentLoaded', init);

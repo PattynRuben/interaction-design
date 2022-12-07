@@ -665,8 +665,8 @@ input::placeholder {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 50px;
     align-items: center;
-   width: 100%;
-   position: relative;
+    width: 100%;
+    position: relative;
 
 }
 
