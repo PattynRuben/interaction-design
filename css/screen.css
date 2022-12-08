@@ -825,8 +825,9 @@ input::placeholder {
     outline: none;
 }
 .c-answer-text{
-    padding-left: 8px;
     margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
 }
 .c-answer-a{
     background-color: #FF0000;
@@ -1198,7 +1199,7 @@ input::placeholder {
     height: 24px;
     width: 24px;
     fill: white;
-    margin-right: 8px;
+
 
 }
 
