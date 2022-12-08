@@ -566,7 +566,7 @@ input::placeholder {
     background-color: var(--card-backgroundColor);
     border-radius: var(--card-borderRadius);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, .075);
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 /* Add padding to child for more flexibility */
@@ -649,6 +649,7 @@ input::placeholder {
 .c-card--answers{
     display: none;
 }
+
 .c-flip--inner.is-flipped{
     transform: rotateY(180deg);
 }
@@ -660,6 +661,12 @@ input::placeholder {
 .c-card--back{
     background-color: var(--global-color-neutral-xxxx-dark);
     color: var(--global-color-neutral-xxxx-light);
+}
+
+.c-card--front{
+    display: block;
+    background-color: white;
+    color: var(--global-color-neutral-xxxx-dark);
 }
 
 
@@ -1199,7 +1206,7 @@ more padding on the right to avoid overlap
     transition: all var(--global-transition-timing-alpha);
     border: var(--global-color-neutral-xxxx-dark);
     max-width: 300px;
-    
+    cursor: pointer;
 }
 .c-logo--dark:hover {
     border-color: var(--global-color-neutral-xxx-dark);
@@ -1208,9 +1215,10 @@ more padding on the right to avoid overlap
 }
 
 .c-logo--dark:focus {
-    background-color: var(--global-color-neutral-xxx-dark);
+    background-color: var(--global-color-neutral-xxx-dark) ;
     border-color: var(--global-color-neutral-xxx-dark);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    
 }
 
 .c-logo--dark:active {
@@ -1225,6 +1233,8 @@ more padding on the right to avoid overlap
     width: 24px;
     fill: white;
 }
+
+
 /*
     Component: Option list
 */

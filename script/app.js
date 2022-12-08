@@ -5,7 +5,7 @@ var myChartCircleA, myChartCircleB, myChartCircleC, myChartCircleD;
 const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
-      console.log('button clicked');
+     
       document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
     });
   });
