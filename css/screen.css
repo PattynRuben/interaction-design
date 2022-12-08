@@ -83,7 +83,7 @@ html {
     color: var(--global-html-color);
     font-size: 100%;
     line-height: 1.5;
-    font-family: "Inter Web", Helvetica, arial, sans-serif;
+    font-family: "Roboto", Helvetica, arial, sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -244,7 +244,9 @@ select {
 input::placeholder {
     color: var(--global-placeholder-color);
 }
-
+:focus{
+    background-color: hotpink;
+}
 
 
 /*------------------------------------*\
@@ -547,9 +549,7 @@ input::placeholder {
     width: 24px;
     fill: white;
 }
-.c-logo:focus{
-    border: 1px solid var(--global-color-primary);
-}
+
 
 /*
     Component: Card
@@ -682,6 +682,11 @@ input::placeholder {
     position: relative;
 }
 
+.c-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 
@@ -899,71 +904,6 @@ input::placeholder {
 }
 
 
-/*
-Input password with toggle checkbox on top of it needs
-more padding on the right to avoid overlap
-*/
-
-.c-input--password-with-toggle {
-    padding-right: 52px;
-}
-.c-toggle-password-container{
-    position: relative;
-}
-
-.c-toggle-password-container>.c-toggle-password{
-    position:absolute;
-    top:0;
-    right:0;
-    bottom: 0;
-    display: block;
-    fill: var(--global-color-neutral-x-light);
-}
-/*.c-toggle-password__icon{
-    margin-top: 14px;
-    margin-right: 14px;
-    margin-bottom: 14px;
-}*/
-.c-toggle-password__label > .c-toggle-password__icon{
-
-    margin-top: 14px;
-    margin-right: 14px;
-    margin-bottom: 14px;
-}
-
-.c-toggle-password__icon{
-    display: block;
-    width: 20px;
-    height: 20px;
-    fill: var(--global-color-neutral-x-light);
-}
-.c-toggle-password__icon--hide{
-    display: var(--c-password-toggle__symbol--hide-display,none);
-}
-.c-toggle-password__icon--show{
-    display: var(--c-password-toggle__symbol--show-display,block);
-}
-
-.c-toggle-password__checkbox:checked+.c-toggle-password__label{
-    --c-password-toggle__symbol--hide-display: block;
-    --c-password-toggle__symbol--show-display: none;
-}
-
-/*.c-toggle-password__checkbox+.c-toggle-password__label .c-toggle-password__icon--show{
-    display: block;
-}
-.c-toggle-password__checkbox+.c-toggle-password__label .c-toggle-password__icon--hide{
-    display: none;
-}
-.c-toggle-password__checkbox:checked+.c-toggle-password__label .c-toggle-password__icon--hide{
-    display: block;
-}
-
-.c-toggle-password__checkbox:checked+.c-toggle-password__label .c-toggle-password__icon--show{
-    display: none;
-}/*
-
-/* option input for checkboxes and radio buttons */
 
 .c-option {
     margin-right: var(--global-whitespace-sm);
@@ -1189,7 +1129,7 @@ more padding on the right to avoid overlap
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);  
 }
 
-.c-logo--dark{
+.o-container .c-logo--dark{
     height: 40px;
     display: flex;
     align-items: center;
@@ -1209,24 +1149,23 @@ more padding on the right to avoid overlap
     cursor: pointer;
 }
 .c-logo--dark:hover {
-    border-color: var(--global-color-neutral-xxx-dark);
-    background-color: var(--global-color-neutral-xxx-dark);
+    border-color: var(--global-color-neutral-xx-dark);
+    background-color: var(--global-color-neutral-xx-dark);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
 .c-logo--dark:focus {
-    background-color: var(--global-color-neutral-xxx-dark) ;
-    border-color: var(--global-color-neutral-xxx-dark);
+    border-color: var(--global-color-neutral-xx-dark);
+    border-color: var(--global-color-neutral-xx-dark);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
     
 }
 
 .c-logo--dark:active {
-    background-color: var(--global-color-neutral-xxx-dark);
-    border-color: var(--global-color-neutral-xxx-dark);
+    background-color: var(--global-color-neutral-xx-dark);
+    border-color: var(--global-color-neutral-xx-dark);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
-
 
 .c-answer-svg{
     height: 24px;
