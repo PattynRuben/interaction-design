@@ -228,7 +228,7 @@ const drawCircleA = function () {
       data: {
         datasets: [
           {
-            label: 'Percentage option A',
+            label: 'Option A',
             percent: percentageA,
             backgroundColor: ['#FF0000'],
           },
@@ -286,7 +286,7 @@ const drawCircleB = function () {
       data: {
         datasets: [
           {
-            label: 'Percentage option B',
+            label: 'Option B',
             percent: percentageB,
             backgroundColor: ['#0000FF'],
           },
@@ -345,7 +345,7 @@ const drawCircleC = function () {
       data: {
         datasets: [
           {
-            label: 'Percentage option C',
+            label: 'Option C',
             percent: percentageC,
             backgroundColor: ['#B8530F'],
           },
@@ -404,7 +404,7 @@ const drawCircleD = function () {
       data: {
         datasets: [
           {
-            label: 'Perentage option D',
+            label: 'Option D',
             percent: percentageD,
             backgroundColor: ['#008000'],
           },
