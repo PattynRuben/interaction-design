@@ -122,10 +122,7 @@ const showData = function (data) {
   drawCircleC();
   percentageD = Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100);
   drawCircleD();
-  /*document.querySelector('.c-percentage-a').innerHTML = `A: ${Math.round((parseInt(stukdata['answers-a']) / totaalPercentage) * 100)}%`;
-  document.querySelector('.c-percentage-b').innerHTML = `B: ${Math.round((parseInt(stukdata['answers-b']) / totaalPercentage) * 100)}%`;
-  document.querySelector('.c-percentage-c').innerHTML = `C: ${Math.round((parseInt(stukdata['answers-c']) / totaalPercentage) * 100)}%`;
-  document.querySelector('.c-percentage-d').innerHTML = `D: ${Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100)}%`;*/
+  
   document.querySelector('.js-answer-def').innerHTML = stukdata['answer'];
   if (stukdata['correct-option'].includes('a')) {
     console.log(stukdata['correct-option']);
@@ -251,7 +248,7 @@ const drawCircleA = function () {
               height = chart.chart.height,
               ctx = chart.chart.ctx;
             ctx.restore();
-            var fontSize = (height / 80).toFixed(2);
+            var fontSize = (height / 70).toFixed(2);
             ctx.font = fontSize + 'em sans-serif';
             ctx.fillStyle = '#9b9b9b';
             ctx.textBaseline = 'middle';
