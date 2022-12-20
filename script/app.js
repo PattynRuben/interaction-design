@@ -6,7 +6,6 @@ const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
       document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
-      disableButtons();
     });
   });
 };
@@ -19,7 +18,6 @@ const listenToReloadButton = function () {
       if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
         document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
       }
-      disableButtons();
       showData(data);
     });
   });
@@ -83,15 +81,14 @@ const listenToAnswers = function () {
 
 const disableButtons = function () {
   document.querySelectorAll('.js-disable').forEach((button) => {
-    button.disabled = true;
-    button.tabIndex = -1;
+    button.setAttribute('tabindex', '-1');
   });
   if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
     document.querySelector('.js-button--question').disabled = false;
     document.querySelector('.js-button--question').tabIndex = 0;
 
   }
-  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
+  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped') && document.querySelector('.c-card--front').style.display === 'block') {
     document.querySelectorAll('.js-answer').forEach((answer) => {
       answer.disabled = false;
       answer.tabIndex = 0;
