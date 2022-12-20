@@ -82,25 +82,24 @@ const listenToAnswers = function () {
 };
 
 const disableButtons = function () {
-  if(document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
-    document.querySelectorAll('.js-answer').forEach((button) => {
-      button.tabindex = false;
-    });
-    document.querySelector('.js-button--answer').disabled = true;
+  document.querySelectorAll('.js-disable').forEach((button) => {
+    button.disabled = true;
+    button.tabIndex = -1;
+  });
+  if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
     document.querySelector('.js-button--question').disabled = false;
-  }else if(!document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
-    document.querySelectorAll('.js-answer').forEach((button) => {
-      button.disabled = false;
+    document.querySelector('.js-button--question').tabIndex = 0;
+
+  }
+  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
+    document.querySelectorAll('.js-answer').forEach((answer) => {
+      answer.disabled = false;
+      answer.tabIndex = 0;
     });
     document.querySelector('.js-button--answer').disabled = false;
-    document.querySelector('.js-button--question').disabled = true;
-  }else if(document.querySelector('.c-card--answers').style.display === 'block'){
-    document.querySelectorAll('.js-answer').forEach((button) => {
-      button.disabled = true;
-    });
-    document.querySelector('.js-button--answer').disabled = true;
-    document.querySelector('.js-button--question').disabled = true;
+    document.querySelector('.js-button--answer').tabIndex = 0;
   }
+
 };
 
 const showData = function (data) {
