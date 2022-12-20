@@ -5,8 +5,8 @@ var myChartCircleA, myChartCircleB, myChartCircleC, myChartCircleD;
 const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
-     
       document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
+      disableButtons();
     });
   });
 };
@@ -14,12 +14,12 @@ const listenToButtonAnswerQuestion = function () {
 const listenToReloadButton = function () {
   document.querySelectorAll('.js-new-question').forEach((button) => {
     button.addEventListener('click', function () {
-      console.log('button question clicked');
       document.querySelector('.c-card--front').style.display = 'block';
       document.querySelector('.c-card--answers').style.display = 'none';
       if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
         document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
       }
+      disableButtons();
       showData(data);
     });
   });
@@ -51,7 +51,7 @@ const addNumberToAnswer = function (id) {
       break;
     case 'd':
       console.log('d');
-      globalStukData['answers-d'] = parseInt(globalStukData['answers-a']) + 1;
+      globalStukData['answers-d'] = parseInt(globalStukData['answers-d']) + 1;
       putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
       break;
     default:
@@ -61,11 +61,8 @@ const addNumberToAnswer = function (id) {
 const listenToAnswers = function () {
   document.querySelectorAll('.js-answer').forEach((answer) => {
     answer.addEventListener('click', function (e) {
-      console.log('button clicked');
       let id = this.getAttribute('id');
-      console.log(id);
-      console.log(globalCorrectAnswer);
-      //addNumberToAnswer(id);
+      addNumberToAnswer(id);
       if (id === globalCorrectAnswer) {
         console.log('correct');
         document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-false');
@@ -77,10 +74,33 @@ const listenToAnswers = function () {
         document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-false');
         document.querySelector('.c-answer-feedbacktext').innerHTML = 'False!';
       }
+
       document.querySelector('.c-card--front').style.display = 'none';
       document.querySelector('.c-card--answers').style.display = 'block';
     });
   });
+};
+
+const disableButtons = function () {
+  if(document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
+    document.querySelectorAll('.js-answer').forEach((button) => {
+      button.tabindex = false;
+    });
+    document.querySelector('.js-button--answer').disabled = true;
+    document.querySelector('.js-button--question').disabled = false;
+  }else if(!document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
+    document.querySelectorAll('.js-answer').forEach((button) => {
+      button.disabled = false;
+    });
+    document.querySelector('.js-button--answer').disabled = false;
+    document.querySelector('.js-button--question').disabled = true;
+  }else if(document.querySelector('.c-card--answers').style.display === 'block'){
+    document.querySelectorAll('.js-answer').forEach((button) => {
+      button.disabled = true;
+    });
+    document.querySelector('.js-button--answer').disabled = true;
+    document.querySelector('.js-button--question').disabled = true;
+  }
 };
 
 const showData = function (data) {
@@ -122,7 +142,7 @@ const showData = function (data) {
   drawCircleC();
   percentageD = Math.round((parseInt(stukdata['answers-d']) / totaalPercentage) * 100);
   drawCircleD();
-  
+
   document.querySelector('.js-answer-def').innerHTML = stukdata['answer'];
   if (stukdata['correct-option'].includes('a')) {
     console.log(stukdata['correct-option']);
@@ -452,8 +472,6 @@ const drawCircleD = function () {
   }
 };
 
-
-
 const getData = async (endpoint) => {
   return fetch(endpoint)
     .then((r) => r.json())
@@ -471,32 +489,32 @@ const putData = async (endpoint, data) => {
   console.log(response);
 };
 
-const listenToBeforePrint = function(){
-  if(myChartCircleA){
+const listenToBeforePrint = function () {
+  if (myChartCircleA) {
     myChartCircleA.addEventListener('beforeprint', drawCircleA);
   }
-  if(myChartCircleB){
+  if (myChartCircleB) {
     myChartCircleB.addEventListener('beforeprint', drawCircleB);
   }
-  if(myChartCircleC){
+  if (myChartCircleC) {
     myChartCircleC.addEventListener('beforeprint', drawCircleC);
   }
-  if(myChartCircleD){
+  if (myChartCircleD) {
     myChartCircleD.addEventListener('beforeprint', drawCircleD);
   }
-}
+};
 
-const listenToAfterPrint = function(){
-  if(myChartCircleA){
+const listenToAfterPrint = function () {
+  if (myChartCircleA) {
     myChartCircleA.addEventListener('afterprint', drawCircleA);
   }
-  if(myChartCircleB){
+  if (myChartCircleB) {
     myChartCircleB.addEventListener('afterprint', drawCircleB);
   }
-  if(myChartCircleC){
+  if (myChartCircleC) {
     myChartCircleC.addEventListener('afterprint', drawCircleC);
   }
-  if(myChartCircleD){
+  if (myChartCircleD) {
     myChartCircleD.addEventListener('afterprint', drawCircleD);
   }
 };
@@ -510,6 +528,7 @@ const init = function () {
   listenToReloadButton();
   listenToBeforePrint();
   listenToAfterPrint();
+  disableButtons();
 };
 window.onbeforeprint = (event) => {
   console.log('Before print');
