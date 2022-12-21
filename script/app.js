@@ -107,6 +107,11 @@ const showData = function (data) {
   for (const item of scrollBars) {
     item.value = stukdata['difficulty'];
   }
+
+  let categories = document.querySelectorAll('.js-category');
+  for (const item of categories) {
+    item.innerHTML = `Category: ${stukdata['category']}`;
+  }
   let questions = document.querySelectorAll('.js-question');
   for (const item of questions) {
     item.innerHTML = `${stukdata['question']}`;
