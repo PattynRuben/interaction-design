@@ -25,32 +25,27 @@ const listenToReloadButton = function () {
   });
 };
 const callbackCorrectAnswer = function (jsonObject) {
-  console.log(jsonObject);
+  //console.log(jsonObject);
 };
 const callbackFalseAnswer = function (jsonObject) {
-  console.log(jsonObject);
+  //console.log(jsonObject);
 };
 
 const addNumberToAnswer = function (id) {
   switch (id) {
     case 'a':
-      console.log('a');
       globalStukData['answers-a'] = parseInt(globalStukData['answers-a']) + 1;
-      console.log(globalStukData);
       putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
       break;
     case 'b':
-      console.log('b');
       globalStukData['answers-b'] = parseInt(globalStukData['answers-b']) + 1;
       putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
       break;
     case 'c':
-      console.log('c');
       globalStukData['answers-c'] = parseInt(globalStukData['answers-c']) + 1;
       putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
       break;
     case 'd':
-      console.log('d');
       globalStukData['answers-d'] = parseInt(globalStukData['answers-d']) + 1;
       putData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data', globalStukData);
       break;
@@ -64,12 +59,10 @@ const listenToAnswers = function () {
       let id = this.getAttribute('id');
       addNumberToAnswer(id);
       if (id === globalCorrectAnswer) {
-        console.log('correct');
         document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-false');
         document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-correct');
         document.querySelector('.c-answer-feedbacktext').innerHTML = 'Correct!';
       } else {
-        console.log('false');
         document.querySelector('.c-answer-feedbacktext').classList.remove('c-answer-feedbacktext-true');
         document.querySelector('.c-answer-feedbacktext').classList.add('c-answer-feedbacktext-false');
         document.querySelector('.c-answer-feedbacktext').innerHTML = 'False!';
@@ -86,12 +79,12 @@ const disableButtons = function () {
   document.querySelectorAll('.js-disable').forEach((button) => {
     button.tabIndex = -1;
   });
-  
-  if(document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
+
+  if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
     document.querySelector('.js-button--question').tabIndex = 0;
     document.querySelector('.js-new-question').tabIndex = 0;
   }
-  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
+  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
     document.querySelector('.js-answer-a').tabIndex = 0;
     document.querySelector('.js-answer-b').tabIndex = 0;
     document.querySelector('.js-answer-c').tabIndex = 0;
@@ -99,16 +92,14 @@ const disableButtons = function () {
     document.querySelector('.js-button--answer').tabIndex = 0;
     document.querySelector('.js-new-question').tabIndex = 0;
   }
-  if(document.querySelector('.c-card--front').style.display === 'none'){
+  if (document.querySelector('.c-card--front').style.display === 'none') {
     document.querySelector('.js-new-question').tabIndex = 0;
     //document.querySelector('.js-button-question').tabIndex = 1;
   }
-
 };
 
 const showData = function (data) {
   let random = Math.floor(Math.random() * data.length);
-  console.log(random);
   let stukdata = data[random];
   globalStukData = stukdata;
   globalCorrectAnswer = `${stukdata['correct-option']}`;
@@ -148,7 +139,6 @@ const showData = function (data) {
 
   document.querySelector('.js-answer-def').innerHTML = stukdata['answer'];
   if (stukdata['correct-option'].includes('a')) {
-    console.log(stukdata['correct-option']);
     document.querySelector('.js-answer-box-a').classList.remove('c-answer-a-solution');
     document.querySelector('.js-answer-box-a').classList.add('c-answer-a');
     document.querySelector('.c-false-icon-a').style.display = 'none';
@@ -169,7 +159,6 @@ const showData = function (data) {
     document.querySelector('.c-false-icon-d').style.display = 'block';
     document.querySelector('.c-correct-icon-d').style.display = 'none';
   } else if (stukdata['correct-option'].includes('b')) {
-    console.log(stukdata['correct-option']);
     document.querySelector('.js-answer-box-a').classList.remove('c-answer-a');
     document.querySelector('.js-answer-box-a').classList.add('c-answer-a-solution');
     document.querySelector('.c-false-icon-a').style.display = 'block';
@@ -190,7 +179,6 @@ const showData = function (data) {
     document.querySelector('.c-false-icon-d').style.display = 'block';
     document.querySelector('.c-correct-icon-d').style.display = 'none';
   } else if (stukdata['correct-option'].includes('c')) {
-    console.log(stukdata['correct-option']);
     document.querySelector('.js-answer-box-a').classList.remove('c-answer-a');
     document.querySelector('.js-answer-box-a').classList.add('c-answer-a-solution');
     document.querySelector('.c-false-icon-a').style.display = 'block';
@@ -211,7 +199,6 @@ const showData = function (data) {
     document.querySelector('.c-false-icon-d').style.display = 'block';
     document.querySelector('.c-correct-icon-d').style.display = 'none';
   } else if (stukdata['correct-option'].includes('d')) {
-    console.log(stukdata['correct-option']);
     document.querySelector('.js-answer-box-a').classList.remove('c-answer-a');
     document.querySelector('.js-answer-box-a').classList.add('c-answer-a-solution');
     document.querySelector('.c-false-icon-a').style.display = 'block';
@@ -236,7 +223,7 @@ const showData = function (data) {
 
 const getQuestions = async () => {
   data = await getData('https://api-eindopdracht-interaction-design.azurewebsites.net/api/data');
-  console.log(data);
+
   showData(data);
 };
 
@@ -244,8 +231,6 @@ const drawCircleA = function () {
   var chartProgress = document.getElementById('chartProgressA');
 
   if (chartProgress) {
-    console.log(chartProgress);
-
     myChartCircleA = new Chart('chartProgressA', {
       type: 'doughnut',
       data: {
@@ -302,8 +287,6 @@ const drawCircleB = function () {
   var chartProgress = document.getElementById('chartProgressB');
 
   if (chartProgress) {
-    console.log(chartProgress);
-
     myChartCircleB = new Chart('chartProgressB', {
       type: 'doughnut',
       data: {
@@ -361,8 +344,6 @@ const drawCircleC = function () {
   var chartProgress = document.getElementById('chartProgressC');
 
   if (chartProgress) {
-    console.log(chartProgress);
-
     myChartCircleC = new Chart('chartProgressC', {
       type: 'doughnut',
       data: {
@@ -420,8 +401,6 @@ const drawCircleD = function () {
   var chartProgress = document.getElementById('chartProgressD');
 
   if (chartProgress) {
-    console.log(chartProgress);
-
     myChartCircleD = new Chart('chartProgressD', {
       type: 'doughnut',
       data: {
@@ -489,7 +468,6 @@ const putData = async (endpoint, data) => {
     },
     body: JSON.stringify(data),
   });
-  console.log(response);
 };
 
 const listenToBeforePrint = function () {
