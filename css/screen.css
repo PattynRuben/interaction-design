@@ -24,10 +24,12 @@
     --global-color-neutral-xxx-dark: #35374d;
     --global-color-neutral-xxxx-dark: #20223a;
 
-    --global-color-red: #FF4D4F;
+    --global-color-red: #FF0000;
     --global-color-blue: #0000FF;
-    --global-color-green: #00FF00;
-    --global-color-orange:   
+    --global-color-orange:  #B8530F;
+    --global-color-green: #008000;
+
+    --global-opacity-8:.8;
     /* global page settings */
     --global-html-color: var(--global-color-neutral-xxxx-dark);
     --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
@@ -723,37 +725,6 @@ input::placeholder {
 
 }
 
-.c-rectangle-percentage{
-    display: inline-block;
-    text-decoration: none;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 600;
-    padding: 4px 5px;
-    
-    border-radius: 5px;
-    box-shadow:  inset 0 0 0 1px var(--global-button-borderColor);
-    background-color: var(--global-color-neutral-xxxx-dark);
-    color: white;
-    outline: none;
-    transition: all var(--global-transition-timing-alpha);
-}
-.c-percentage-a{
-    background-color: #FF0000;
-    color: white;
-}
-.c-percentage-b{
-    background-color: #0000FF;
-    color: white;
-}
-.c-percentage-c{
-    background-color: #EA6813;
-    color: white;
-}
-.c-percentage-d{
-    background-color: #008000;
-    color: white;
-}
 
 
 /*
@@ -828,43 +799,43 @@ input::placeholder {
     line-height: 1.25rem;
 }
 .c-answer-a{
-    background-color: #FF0000;
-    border: var(--global-borderWidth) solid #FF0000;
+    background-color: var(--global-color-red);
+    border: var(--global-borderWidth) solid var(--global-color-red);
 }
 .c-answer-a-solution{
-    background-color: #FF0000;
-    border: var(--global-borderWidth) solid #FF0000;
+    background-color: var(--global-color-red);
+    border: var(--global-borderWidth) solid var(--global-color-red);
     opacity: 0.5;
 }
 
 .c-answer-b{
-    background-color: #0000FF;
-    border: var(--global-borderWidth) solid #0000FF;
+    background-color: var(--global-color-blue);
+    border: var(--global-borderWidth) solid var(--global-color-blue);
 }
 .c-answer-b-solution{
-    background-color: #0000FF;
-    border: var(--global-borderWidth) solid #0000FF;
+    background-color: var(--global-color-blue);
+    border: var(--global-borderWidth) solid var(--global-color-blue);
     opacity: 0.5;
 }
 
 .c-answer-c{
-    background-color: #B8530F;
-    border: var(--global-borderWidth) solid #B8530F;
+    background-color: var(--global-color-orange);
+    border: var(--global-borderWidth) solid var(--global-color-orange);
 }
 .c-answer-c-solution{
-    background-color: #B8530F;
-    border: var(--global-borderWidth) solid #B8530F;
+    background-color:var(--global-color-orange);
+    border: var(--global-borderWidth) solid var(--global-color-orange);
     opacity: 0.5;
 }
 
 .c-answer-d{
-    background-color: #008000;
-    border: var(--global-borderWidth) solid #008000;
+    background-color: var(--global-color-green);
+    border: var(--global-borderWidth) solid var(--global-color-green);
 }
 
 .c-answer-d-solution{
-    background-color: #008000;
-    border: var(--global-borderWidth) solid #008000;
+    background-color: var(--global-color-green);
+    border: var(--global-borderWidth) solid var(--global-color-green);
     opacity: 0.5;
 }
 .c-answer-feedbacktext{
@@ -875,11 +846,11 @@ input::placeholder {
 }
 
 .c-answer-feedbacktext-correct{
-    color: #00FF00;
+    color: var(--global-color-green);
 }
 
 .c-answer-feedbacktext-false{
-    color: #FF0000;
+    color: var(--global-color-red);
 }
 
 
@@ -1051,89 +1022,101 @@ input::placeholder {
 
 
 .c-button--a{
-    background-color: rgba(237,0,0,1);
-    border-color:  rgba(237,0,0,1);
+    background-color: var(--global-color-red);
+    border-color:  var(--global-color-red);
 }
 .c-button--a:hover{
-    background-color: rgba(237,28,37,0.8);
-    border-color:  rgba(237,28,37,0.8);
+    background-color: var(--global-color-red);
+    border-color:  var(--global-color-red);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--a:focus, 
 .c-button--a:focus-visible {
-    background-color: rgba(237,28,37,0.8);
-    border-color: rgba(237,28,37,0.8);
+    background-color: var(--global-color-red);
+    border-color:  var(--global-color-red);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--a:active{
-    background-color: rgba(237,28,37,0.8);
-    border-color:  rgba(237,28,37,0.8);
+    background-color: var(--global-color-red);
+    border-color:  var(--global-color-red);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 
 .c-button--b{
-    background-color: #0000FF;
-    border-color: #0000FF;
+    background-color: var(--global-color-blue);
+    border-color: var(--global-color-blue);
 }
 
 .c-button--b:hover{
-    background-color: rgba(0,0,255,0.8);
-    border-color:  rgba(0,0,255,0.8);
+    background-color: var(--global-color-blue);
+    border-color: var(--global-color-blue);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--b:focus,
 .c-button--b:focus-visible {
-    background-color: rgba(0,0,255,0.8);
-    border-color: rgba(0,0,255,0.8);
+    background-color: var(--global-color-blue);
+    border-color: var(--global-color-blue);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--b:active{
-    background-color: rgba(0,0,255,0.8);
-    border-color:  rgba(0,0,255,0.8);
+    background-color: var(--global-color-blue);
+    border-color: var(--global-color-blue);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);   
+    opacity: var(--global-opacity-8);
 }
 
 .c-button--c{
-    background-color: rgba(184,83,15,1);
-    border-color: rgba(184,83,15,1);
+    background-color: var(--global-color-orange);
+    border-color: var(--global-color-orange);
 }
 
 .c-button--c:hover{
-    background-color: rgba(184,83,15,0.8);
-    border-color:  rgba(184,83,15,0.8);
+    background-color: var(--global-color-orange);
+    border-color: var(--global-color-orange);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--c:focus,
 .c-button--c:focus-visible {
-    background-color: rgba(184,83,15,0.8);
-    border-color: rgba(184,83,15,0.8);
+    background-color: var(--global-color-orange);
+    border-color: var(--global-color-orange);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--c:active{
-    background-color: rgba(184,83,15,0.8);
-    border-color:  rgba(184,83,15,0.8);
-    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);    
+    background-color: var(--global-color-orange);
+    border-color: var(--global-color-orange);
+    box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);   
 }
 
 .c-button--d{
-    background-color: rgba(0,128,0,1);
-    border-color: rgba(0,128,0,1);
+    background-color: var(--global-color-green);
+    border-color: var(--global-color-green);
 }
 
 .c-button--d:hover{
-    background-color: rgba(0,128,0,0.8);
-    border-color:  rgba(0,128,0,0.8);
+    background-color: var(--global-color-green);
+    border-color: var(--global-color-green);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--d:focus {
-    background-color: rgba(0,128,0,0.8);
-    border-color: rgba(0,128,0,0.8);
+    background-color: var(--global-color-green);
+    border-color: var(--global-color-green);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    opacity: var(--global-opacity-8);
 }
 .c-button--d:active{
-    background-color: rgba(0,128,0,0.8);
-    border-color:  rgba(0,128,0,0.8);
+    background-color: var(--global-color-green);
+    border-color: var(--global-color-green);
     box-shadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);  
+    opacity: var(--global-opacity-8);
 }
 
 .c-button--back{
