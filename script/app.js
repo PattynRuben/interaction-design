@@ -6,6 +6,7 @@ const listenToButtonAnswerQuestion = function () {
   document.querySelectorAll('.js-button').forEach((button) => {
     button.addEventListener('click', function (e) {
       document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
+      disableButtons();
     });
   });
 };
@@ -19,6 +20,7 @@ const listenToReloadButton = function () {
         document.querySelector('.c-flip--inner').classList.toggle('is-flipped');
       }
       showData(data);
+      disableButtons();
     });
   });
 };
@@ -75,26 +77,31 @@ const listenToAnswers = function () {
 
       document.querySelector('.c-card--front').style.display = 'none';
       document.querySelector('.c-card--answers').style.display = 'block';
+      disableButtons();
     });
   });
 };
 
 const disableButtons = function () {
   document.querySelectorAll('.js-disable').forEach((button) => {
-    button.setAttribute('tabindex', '-1');
+    button.tabIndex = -1;
   });
-  if (document.querySelector('.c-flip--inner').classList.contains('is-flipped')) {
-    document.querySelector('.js-button--question').disabled = false;
+  
+  if(document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
     document.querySelector('.js-button--question').tabIndex = 0;
-
+    document.querySelector('.js-new-question').tabIndex = 0;
   }
-  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped') && document.querySelector('.c-card--front').style.display === 'block') {
-    document.querySelectorAll('.js-answer').forEach((answer) => {
-      answer.disabled = false;
-      answer.tabIndex = 0;
-    });
-    document.querySelector('.js-button--answer').disabled = false;
+  if (!document.querySelector('.c-flip--inner').classList.contains('is-flipped')){
+    document.querySelector('.js-answer-a').tabIndex = 0;
+    document.querySelector('.js-answer-b').tabIndex = 0;
+    document.querySelector('.js-answer-c').tabIndex = 0;
+    document.querySelector('.js-answer-d').tabIndex = 0;
     document.querySelector('.js-button--answer').tabIndex = 0;
+    document.querySelector('.js-new-question').tabIndex = 0;
+  }
+  if(document.querySelector('.c-card--front').style.display === 'none'){
+    document.querySelector('.js-new-question').tabIndex = 0;
+    //document.querySelector('.js-button-question').tabIndex = 1;
   }
 
 };
